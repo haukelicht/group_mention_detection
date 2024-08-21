@@ -1,0 +1,50 @@
+[
+  {
+    "id": 745,
+    "text": "social group",
+    "prefixKey": null,
+    "suffixKey": "g",
+    "backgroundColor": "#D1E6C9",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 746,
+    "text": "political group",
+    "prefixKey": null,
+    "suffixKey": "p",
+    "backgroundColor": "#D0C7E4",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 747,
+    "text": "political institution",
+    "prefixKey": null,
+    "suffixKey": "i",
+    "backgroundColor": "#CE5088",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 748,
+    "text": "organization, public institution, or collective actor",
+    "prefixKey": null,
+    "suffixKey": "c",
+    "backgroundColor": "#C5DBF0",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 749,
+    "text": "implicit social group reference",
+    "prefixKey": null,
+    "suffixKey": "x",
+    "backgroundColor": "#FDF0C1",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 750,
+    "text": "unsure",
+    "prefixKey": null,
+    "suffixKey": "u",
+    "backgroundColor": "#F0BFC1",
+    "textColor": "#ffffff"
+  }
+]

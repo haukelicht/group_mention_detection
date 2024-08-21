@@ -1,0 +1,86 @@
+[
+  {
+    "text": "SG-a",
+    "suffixKey": "g",
+    "prefixKey": null,
+    "backgroundColor": "#D1E6C9",
+    "textColor": "#ffffff"
+  },
+  {
+    "text": "PG-a",
+    "suffixKey": "p",
+    "prefixKey": null,
+    "backgroundColor": "#D0C7E4",
+    "textColor": "#ffffff"
+  },
+  {
+    "text": "PI-a",
+    "suffixKey": "i",
+    "prefixKey": null,
+    "backgroundColor": "#CE5088",
+    "textColor": "#ffffff"
+  },
+  {
+    "text": "ORG-a",
+    "suffixKey": "c",
+    "prefixKey": null,
+    "backgroundColor": "#C5DBF0",
+    "textColor": "#ffffff"
+  },
+  {
+    "text": "ISG-a",
+    "suffixKey": "x",
+    "prefixKey": null,
+    "backgroundColor": "#FDF0C1",
+    "textColor": "#ffffff"
+  },
+  {
+    "text": "unsure-a",
+    "suffixKey": "u",
+    "prefixKey": null,
+    "backgroundColor": "#F0BFC1",
+    "textColor": "#ffffff"
+  },
+  {
+    "text": "SG-z",
+    "suffixKey": "g",
+    "prefixKey": null,
+    "backgroundColor": "#D1E6C9",
+    "textColor": "#ffffff"
+  },
+  {
+    "text": "PG-z",
+    "suffixKey": "p",
+    "prefixKey": null,
+    "backgroundColor": "#D0C7E4",
+    "textColor": "#ffffff"
+  },
+  {
+    "text": "PI-z",
+    "suffixKey": "i",
+    "prefixKey": null,
+    "backgroundColor": "#CE5088",
+    "textColor": "#ffffff"
+  },
+  {
+    "text": "ORG-z",
+    "suffixKey": "c",
+    "prefixKey": null,
+    "backgroundColor": "#C5DBF0",
+    "textColor": "#ffffff"
+  },
+  {
+    "text": "ISG-z",
+    "suffixKey": "x",
+    "prefixKey": null,
+    "backgroundColor": "#FDF0C1",
+    "textColor": "#ffffff"
+  },
+  {
+    "text": "unsure-z",
+    "suffixKey": "u",
+    "prefixKey": null,
+    "backgroundColor": "#F0BFC1",
+    "textColor": "#ffffff"
+  }
+]
