@@ -438,6 +438,7 @@ def train_and_test(
         # logging
         logging_dir=logs_path,
         logging_strategy='epoch',
+        report_to='none',
         # efficiency
         fp16=fp16_training if torch.cuda.is_available() else False,
         fp16_full_eval=False,

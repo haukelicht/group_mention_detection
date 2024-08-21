@@ -9,9 +9,9 @@ args.text_col = 'text'
 args.metadata_cols = 'manifesto_id,party,date'
 args.model_path = '../results/classifiers/uk-manifestos_roberta/best_model/'
 args.batch_size = 64
-args.output_file = '../data/manifestos/test.jsonl'
+args.output_file = '../data/labeled/all_uk_manifesto_sentences_predicted_labels.jsonl'
 args.return_spanlevel = True
-args.test = True
+args.test = False
 args.verbose = True
 
 args.metadata_cols = [c.strip() for c in args.metadata_cols.split(',')]
@@ -25,8 +25,9 @@ import jsonlines
 import torch
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
 
-device = 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
-if args.verbose: print('using device:', device)
+device = 'cuda:0' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
+device = torch.device(device)
+if args.verbose: print('using device:', str(device))
 
 
 tokenizer = AutoTokenizer.from_pretrained(args.model_path, use_fast=True, add_prefix_space=True)
@@ -108,7 +109,7 @@ if args.return_spanlevel:
     # bring the colums in the right order
     df = df[args.metadata_cols + [args.id_col, 'sentence_text', 'span_nr', 'label', 'text']]
 
-    args.output_file = args.output_file.replace('.jsonl', '_spans.tsv')
+    args.output_file = args.output_file.replace('_labels.jsonl', '_spans.tsv')
     if args.verbose: print(f'Writing span-level predictions in TSV format to {args.output_file}')
     df.to_csv(args.output_file, sep='\t', index=False, encoding='utf-8')
 
