@@ -1,5 +1,8 @@
 
+
 code/*.ipynb
+code/test_*
+code/logs/
 
 results/classifiers/**/best_model
 results/**/checkpoints/
@@ -10,7 +13,9 @@ code/xx_*.ipynb
 code/*/xx_deprecated/
 .DS_Store
 
-
+# EULER HPC
+setup_euler.sh
+.hf_models/
 
 ## Python
 
