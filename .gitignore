@@ -6,6 +6,7 @@ code/logs/
 
 results/classifiers/**/best_model
 results/**/checkpoints/
+results/experiments/**/*best_model
 
 # misc
 code/sandbox.ipynb

@@ -1,0 +1,33 @@
+{
+  "model_name": "roberta-base",
+  "experiment_name": "uk-manifestos_training-size_roberta-finetuning",
+  "experiment_results_path": "./../results/experiments",
+  "data_file": "../data/annotation/labeled/uk-manifestos_all_labeled.jsonl",
+  "types": [
+    "SG",
+    "PG",
+    "PI",
+    "ORG",
+    "ISG"
+  ],
+  "discard_types": [
+    "unsure"
+  ],
+  "test_size": 0.1,
+  "dev_size": 0.1,
+  "seeds": [
+    1234,
+    2345,
+    3456,
+    4567,
+    5678
+  ],
+  "nrepeats": 5,
+  "train_chunk_size": 1000,
+  "metric": "seqeval-SG_f1",
+  "epochs": 10,
+  "learning_rate": 2e-05,
+  "train_batch_size": 8,
+  "weight_decay": 0.01,
+  "eval_batch_size": 64
+}
