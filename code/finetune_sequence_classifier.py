@@ -1,9 +1,5 @@
 # ## Setup
 
-
-# taken from `apply_cap_classifier_uk_lab+con_manifestos.ipynb`
-
-
 from types import SimpleNamespace
 
 args = SimpleNamespace()
@@ -41,7 +37,7 @@ import pandas as pd
 
 import torch
 import datasets
-from transformers import set_seed, AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForSequenceClassification, DataCollatorWithPadding, set_seed
 
 from utils.classification import create_sequence_classification_dataset, split_data, train_and_test
 from utils.evaluation import parse_sequence_classifier_prediction_output, compute_sequence_classification_metrics
@@ -62,7 +58,7 @@ def get_class_weights(data: datasets.Dataset):
 
 device = 'cuda:0' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
 device = torch.device(device)
-
+print('Using device:', str(device))
 
 set_seed(args.seed)
 
@@ -99,13 +95,10 @@ dataset = dataset.map(preprocess, batched=True)
 
 class_weights = get_class_weights(dataset['train'])
 
-
-from transformers import AutoModelForSequenceClassification, DataCollatorWithPadding
 def model_init():
     model = AutoModelForSequenceClassification.from_pretrained(args.model_name, num_labels=len(label2id), label2id=label2id, id2label=id2label)
     model.to(device);
     return model
-
 
 
 model, model_path, test_res = train_and_test(

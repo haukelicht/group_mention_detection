@@ -3,7 +3,7 @@ from types import SimpleNamespace
 
 args = SimpleNamespace()
 
-args.model_names = 'roberta-base,bert-base-cased,distilbert-base-cased,microsoft/deberta-v3-base'
+args.model_names = 'microsoft/deberta-v3-base,roberta-base,bert-base-cased,distilbert-base-cased'
 args.experiment_name = 'uk-manifestos_model-comparison'
 args.experiment_results_path = './../results/experiments'
 
@@ -28,8 +28,6 @@ args.discard_types = [t.strip() for t in args.discard_types.split(',')]
 scheme = ['O'] + ['I-'+t for t in args.types] + ['B-'+t for t in args.types]
 label2id = {l: i for i, l in enumerate(scheme)}
 id2label = {i: l for i, l in enumerate(scheme)}
-NUM_LABELS = len(label2id)
-
 
 # #### Load libraries
 
@@ -50,7 +48,7 @@ from utils.classification import (
 )
 
 import torch
-import accelerate
+#import accelerate
 import transformers
 from transformers import (
     AutoTokenizer,
@@ -69,12 +67,17 @@ from seqeval.metrics import classification_report
 import optuna
 
 
+# os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+
 # transformers.logging.set_verbosity_error()
 # os.environ['TRANSFORMERS_VERBOSITY'] = 'error'
-os.environ['TRANSFORMERS_NO_ADVISORY_WARNINGS'] = '1'
+# os.environ['TRANSFORMERS_NO_ADVISORY_WARNINGS'] = '1'
 
 
 device = 'cuda:0' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
+if device == 'cpu':
+    raise ValueError('CUDA not available')
+device = torch.device(device)
 print(f'Using device "{str(device)}"')
 
 
@@ -134,9 +137,9 @@ def run_hyperparameter_search(
     n_trials=3,
     out_dir='hpsearch'
 ):
+    print('Starting HP search for model', model_name)
     # load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True, add_prefix_space=True)
-    assert isinstance(tokenizer, transformers.PreTrainedTokenizerFast)
     
     # creat the training split
     train_dataset = create_token_classification_dataset([data[idx] for idx in train_idxs])
@@ -169,6 +172,7 @@ def run_hyperparameter_search(
         logging_strategy='no',
         # where to store results
         output_dir=out_dir,
+        report_to='none',
         # misc
         fp16=device == 'cuda:0',
         # reproducibility

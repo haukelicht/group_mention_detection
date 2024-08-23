@@ -1,0 +1,30 @@
+{
+  "microsoft/deberta-v3-base": {
+    "learning_rate": 9e-06,
+    "per_device_train_batch_size": 8,
+    "weight_decay": 0.3,
+    "seqeval-SG_f1": 0.7351828499369484,
+    "elapsed": 4156.114013032056
+  },
+  "roberta-base": {
+    "learning_rate": 2e-05,
+    "per_device_train_batch_size": 8,
+    "weight_decay": 0.01,
+    "seqeval-SG_f1": 0.7468827930174563,
+    "elapsed": 2813.5512540889904
+  },
+  "bert-base-cased": {
+    "learning_rate": 9e-06,
+    "per_device_train_batch_size": 8,
+    "weight_decay": 0.3,
+    "seqeval-SG_f1": 0.7141979102642901,
+    "elapsed": 2477.1355359491426
+  },
+  "distilbert-base-cased": {
+    "learning_rate": 2e-05,
+    "per_device_train_batch_size": 8,
+    "weight_decay": 0.01,
+    "seqeval-SG_f1": 0.6817348808796578,
+    "elapsed": 1656.8298950430471
+  }
+}

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --time=01:00:00
+#SBATCH --time=04:00:00
 #SBATCH --gpus=1
 #SBATCH --gres=gpumem:24G
 #SBATCH --mem-per-cpu=16G
@@ -20,14 +20,22 @@ source ./../venv/bin/activate
 export HF_HOME=$(pwd)/../.hf_models
 
 
-python -c "import torch; print(torch.cuda.memory_summary(device=torch.device('cuda:0')))"
+# python -c -u "import torch; print(torch.cuda.memory_summary())"
 
-# python run_model_comparison_experiment.py
+message "Running model comparison and hypter-parameter search"
+python run_model_comparison_experiment.py
 
 # message "Training token classifier on labeled sentences from UK manifestos"
 # python finetune_token_classifier.py
 
-message "Applying token classifier to unlabeled UK manifesto sentences"
-python inference_token_classifier.py
+# message "Applying token classifier to unlabeled UK manifesto sentences"
+# python inference_token_classifier.py
+
+
+# message "Training CAP classifier on labeled sentences from UK Con and Lab manifestos"
+# python finetune_sequence_classifier.py
+
+# message "Applying CAP classifier to unlabeled UK manifesto sentences"
+# python inference_cap_classifier.py
 
 message "Done!"

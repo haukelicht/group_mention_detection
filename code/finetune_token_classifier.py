@@ -11,16 +11,16 @@ args.data_file = '../data/annotation/labeled/uk-manifestos_all_labeled.jsonl'
 args.types = 'SG,PG,PI,ORG,ISG'
 args.discard_types = 'unsure'
 
-args.test_size = 0.1
+args.test_size = 0.1 # consider setting this to 0 (no need to waste data given that this classifier is for labeling unlabeled data and we have already estimated OOS performance in the 5x5 CV experiment)
 args.dev_size = 0.1
 args.seed = 1234
 
 args.metric = 'seqeval-SG_f1'
 args.epochs=10
-args.learning_rate=4e-5
-args.train_batch_size=16
+args.learning_rate=2e-5
+args.train_batch_size=8
 args.eval_batch_size=64
-args.weight_decay=0.3
+args.weight_decay=0.01
 
 
 
@@ -60,8 +60,7 @@ from utils.classification import (
     train_and_test
 )
 
-from utils.evaluation import compute_token_classification_metrics
-
+from utils.evaluation import compute_token_classification_metrics, parse_eval_result
 
 
 device = 'cuda:0' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
@@ -145,7 +144,7 @@ model, model_path, test_res = train_and_test(
     data_collator=DataCollatorForTokenClassification(tokenizer),
     train_dat=dataset['train'],
     dev_dat=dataset['dev'],
-    test_dat=dataset['test'],
+    test_dat=dataset['test'] if test in dataset.keys() else None,
     compute_metrics=compute_metrics,
     metric=args.metric,
     epochs=args.epochs,
@@ -157,9 +156,12 @@ model, model_path, test_res = train_and_test(
     seed=args.seed,
 )
 
+if test_res is not None:
+    # {m: v for m, v in test_res.items() if 'f1' in m and '-SG' in m}
+    print('Test set results')
+    print(parse_eval_result(test_res, types=['SG'], remove_prefix='test_'))
+else:
+    dev_res = model.evaluate(dataset['dev'], metric_key_prefix='dev')
+    print('Dev set results')
+    print(parse_eval_result(dev_res, types=['SG'], remove_prefix='dev_'))
 
-{m: v for m, v in test_res.items() if 'f1' in m and '-SG' in m}
-
-
-from utils.evaluation import parse_eval_result
-parse_eval_result(test_res, types=['SG'], remove_prefix='test_')
