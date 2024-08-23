@@ -226,7 +226,7 @@ def create_token_classification_dataset(
 
 def tokenize_and_align_sequence_labels(examples, tokenizer, **kwargs):
     # source: simplied from  https://github.com/huggingface/transformers/blob/730a440734e1fb47c903c17e3231dac18e3e5fd6/examples/pytorch/token-classification/run_ner.py#L442
-    tokenized_inputs = tokenizer(examples['tokens'], is_split_into_words=True, **kwargs)
+    tokenized_inputs = tokenizer(examples['tokens'], is_split_into_words=True, truncation=True, **kwargs)
 
     labels = []
     for i, label in enumerate(examples['labels']):
@@ -440,6 +440,7 @@ def train_and_test(
         logging_strategy='epoch',
         report_to='none',
         # efficiency
+        use_mps_device=torch.backends.mps.is_available(),
         fp16=fp16_training if torch.cuda.is_available() else False,
         fp16_full_eval=False,
         # reproducibility
