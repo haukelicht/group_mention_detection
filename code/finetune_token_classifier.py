@@ -36,6 +36,7 @@ id2label = {i: l for i, l in enumerate(scheme)}
 
 
 import os
+import json
 import jsonlines
 
 import random
@@ -165,3 +166,10 @@ else:
     print('Dev set results')
     print(parse_eval_result(dev_res, types=['SG'], remove_prefix='dev_'))
 
+# finally: write config and split_sizes to experiment folder
+dest = os.path.join(args.experiment_results_path, args.experiment_name)
+os.makedirs(dest, exist_ok=True)
+
+fp = os.path.join(dest, 'config.json')
+with open(fp, 'w') as file:
+    json.dump(args.__dict__, file, indent=2)
