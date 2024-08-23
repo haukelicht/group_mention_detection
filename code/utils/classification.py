@@ -327,8 +327,10 @@ def train_and_test(
     train_dat: Dataset,
     dev_dat: Union[None, Dataset],
     test_dat: Union[None, Dataset],
+    extra_test_dat: Union[None, Dataset],
     compute_metrics: Callable,
     metric: str,
+    append_test_results: bool=False,
     class_weights: Optional[Union[List, Dict[Union[int, str], float]]]=None,
     epochs: int = TrainingArguments.num_train_epochs,
     learning_rate: float = TrainingArguments.learning_rate,
@@ -366,10 +368,14 @@ def train_and_test(
             The dataset used for validation. If None, validation is skipped.
         test_dat (Union[None, Dataset]): 
             The dataset used for testing. If None, testing is skipped.
+        extra_test_dat (Union[None, Dataset]):
+            An additional dataset used for testing.
         compute_metrics (Callable): 
             Function to compute metrics based on predictions and true labels.
         metric (str): 
             Name of the metric to be used for evaluation.
+        append_test_results (bool):
+            Whether to append test results to the test results file. If True, the JSON file will converted to JSONL format.
         epochs (int): 
             Number of training epochs. Defaults to TrainingArguments.num_train_epochs.
         learning_rate (float): 
@@ -492,17 +498,44 @@ def train_and_test(
         if save_tokenizer:
             tokenizer.save_pretrained(dest)
 
+    test_fn = run_id+'-test_results.json' if run_id else 'test_results.json'
+    
     # evaluate
     if test_dat:
         print('Evaluating ...')
         res = trainer.evaluate(test_dat, metric_key_prefix='test')
         print(res)
-        fn = run_id+'-test_results.json' if run_id else 'test_results.json'
-        fp = os.path.join(results_path, fn)
-        with open(fp, 'w') as file:
-            json.dump(res, file)
+        if run_id:
+            res['run_id'] = run_id
+        fp = os.path.join(results_path, test_fn)
+        if append_test_results:
+            if os.path.exists(fp):
+                # move to JSONL file
+                shutil.move(fp, fp+'l')
+            fp += 'l'
+            mode = 'a'
+        else:
+            mode = 'w'
+        with open(fp, mode) as file:
+            file.write(json.dumps(res)+'\n')
     else:
       res = None
+
+    if extra_test_dat:
+        print('Evaluating extra test data...')
+        res = trainer.evaluate(extra_test_dat, metric_key_prefix='test')
+        print(res)
+        res['run_id'] = run_id+'-extra' if run_id else 'extra'
+        fp = os.path.join(results_path, test_fn)
+        if test_dat or append_test_results:
+            if os.path.exists(fp):
+                shutil.move(fp, fp+'l')
+            fp += 'l'
+            mode = 'a'
+        else:
+            mode = 'w'
+        with open(fp, mode) as file:
+            file.write(json.dumps(res)+'\n')
 
     # finally: clean up
     if os.path.exists(output_path):
