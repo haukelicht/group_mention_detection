@@ -1,11 +1,12 @@
+
 from types import SimpleNamespace
 
 args = SimpleNamespace()
 
-args.experiment_name = 'uk-manifestos_cross-party-transfer_roberta-finetuning'
+args.experiment_name = 'manifestos_cross-lingual-transfer_roberta-finetuning'
 args.experiment_results_path = './../results/experiments'
 
-args.data_file = '../data/annotation/labeled/uk-manifestos_all_labeled.jsonl'
+args.data_files = '../data/annotation/labeled/uk-manifestos_all_labeled.jsonl,../data/annotation/labeled/de-manifestos_all_labeled.jsonl'
 args.types = 'SG,PG,PI,ORG,ISG'
 args.discard_types = 'unsure'
 
@@ -16,19 +17,21 @@ args.nchunks = 5
 args.source_domain_test_size = 0.1
 args.target_domain_test_size = 0.2
 
-args.source_domain_key = 'party'
-args.source_domain_values = 'conservatives,labour,51620,51320'
+args.source_domain_key = 'country'
+args.source_domain_values = 'uk'
 
-args.model_name = 'roberta-base'
+args.model_name = 'xlm-roberta-base'
 args.metric = 'seqeval-SG_f1'
 args.epochs=10
 args.learning_rate=2e-5
 args.train_batch_size=8
-args.eval_batch_size=64
 args.weight_decay=0.01
+args.eval_batch_size=64
 
 
 # argument parsing and configuration
+args.data_files = [fp.strip() for fp in args.data_files.split(',')]
+
 args.seeds = [int(seed.strip()) for seed in args.seeds.split(',')]
 assert len(args.seeds) == args.nrepeats
 
@@ -38,11 +41,13 @@ args.discard_types = [t.strip() for t in args.discard_types.split(',')]
 scheme = ['O'] + ['I-'+t for t in args.types] + ['B-'+t for t in args.types]
 label2id = {l: i for i, l in enumerate(scheme)}
 id2label = {i: l for i, l in enumerate(scheme)}
+NUM_LABELS = len(label2id)
 
 args.source_domain_values = [v.strip() for v in args.source_domain_values.split(',')]
 
 
 # #### Load libraries
+
 
 import os
 import shutil
@@ -105,15 +110,20 @@ def model_init(model_name_or_path: str=args.model_name):
     model.to(device);
     return model
 
-
-# custom helper functions
 def compute_metrics(p):
     labels, predictions = parse_token_classifier_prediction_output(p)
     return compute_token_classification_metrics(y_true=labels, y_pred=predictions, label2id=label2id)
 
 
-# #### load and preprocess data
+# #### load data
 
+
+data = list()
+for fp in args.data_files:
+    with jsonlines.open(fp) as reader:
+        for d in reader:
+            d['metadata']['country'] = os.path.basename(fp)[:2]
+            data.append(d)
 
 def parse_record(d):
     dat = {
@@ -125,8 +135,7 @@ def parse_record(d):
     dat[args.source_domain_key] = d['metadata'][args.source_domain_key]
     return dat
 
-with jsonlines.open(args.data_file) as reader:
-    data = [parse_record(d) for d in reader]
+data = [parse_record(d) for d in data]
 
 
 source_data = [d for d in data if d[args.source_domain_key] in args.source_domain_values]
@@ -134,11 +143,9 @@ target_data = [d for d in data if d[args.source_domain_key] not in args.source_d
 print(len(data), len(source_data), len(target_data))
 del data
 
-
 # shuffle data (reproducably)
 random.Random(args.seeds[0]).shuffle(source_data)
 random.Random(args.seeds[0]).shuffle(target_data)
-
 
 # get document (group) indicators
 source_sentence_docs = [d['doc'] for d in source_data]
@@ -149,13 +156,11 @@ print('# groups (target):', len(Counter(target_sentence_docs)))
 source_sentence_docs = np.array(source_sentence_docs)
 target_sentence_docs = np.array(target_sentence_docs)
 
-
 tokens, labels = prepare_token_labels(source_data, discard_unsure='unsure' in args.discard_types)
 for d, t, l in zip(source_data, tokens, labels):
     d['tokens'], d['labels'] = t, l
 
 source_data = [{'tokens': toks, 'labels': labs} for toks, labs in zip(tokens, labels)]
-
 
 tokens, labels = prepare_token_labels(target_data, discard_unsure='unsure' in args.discard_types)
 for d, t, l in zip(target_data, tokens, labels):
@@ -164,7 +169,10 @@ for d, t, l in zip(target_data, tokens, labels):
 target_data = [{'tokens': toks, 'labels': labs} for toks, labs in zip(tokens, labels)]
 
 
-# ## Run Experiment
+# #### prepare training
+
+
+# #### Train
 
 
 split_sizes = list()
@@ -176,11 +184,10 @@ for i, (train_idxs, test_idxs) in enumerate(repeats.split(source_data, groups=so
     
     # get and set seed
     seed = args.seeds[i]
-    set_seed(seed)
     
     # create source domain test split
     src_test_dataset = create_dataset([source_data[idx] for idx in test_idxs])
-    
+
     # create source domain train/dev split
     gkf = GroupKFold(n_splits=5)
     src_trn, src_dev = next(gkf.split(train_idxs, groups=source_sentence_docs[train_idxs]))
@@ -189,14 +196,16 @@ for i, (train_idxs, test_idxs) in enumerate(repeats.split(source_data, groups=so
 
     # create target domain train/test split
     gkf = GroupKFold(n_splits=math.ceil(1/args.target_domain_test_size))
-    tgt_trn_idxs, tgt_test_idxs = next(gkf.split(target_data, groups=target_sentence_docs))
+    tgt_train_idxs, tgt_test_idxs = next(gkf.split(target_data, groups=target_sentence_docs))
+    tgt_train_dataset = create_dataset([target_data[idx] for idx in tgt_train_idxs])
     tgt_test_dataset = create_dataset([target_data[idx] for idx in tgt_test_idxs])
-    
+
     print('-'*53)
     run_id = str(f'rep{i+1:02d}-baseline')
     print(f'{run_id}: # train: {len(src_trn)}; # dev: {len(src_dev)}; # test: {len(test_idxs)}')
     split_sizes.append( [run_id, len(src_trn), len(src_dev), len(test_idxs)])
     
+
     # train & test baseline
     _, model_path, _ = train_and_test(
         experiment_name=args.experiment_name,
@@ -222,18 +231,18 @@ for i, (train_idxs, test_idxs) in enumerate(repeats.split(source_data, groups=so
     )
     last_checkpoints = [model_path]
     
-    for j, chunk in enumerate(np.array_split(tgt_trn_idxs, args.nchunks)):
+    for j, chunk in enumerate(np.array_split(tgt_train_idxs, args.nchunks)):
         
-        # create train/val splits
+        # create train/dev splits
         gkf = GroupKFold(n_splits=math.ceil(1/args.target_domain_test_size))
         trn, dev = next(gkf.split(chunk, groups=target_sentence_docs[chunk]))
         tgt_train_dataset = create_dataset([target_data[idx] for idx in trn])
         tgt_dev_dataset = create_dataset([target_data[idx] for idx in dev])
-        
+
         run_id = str(f'rep{i+1:02d}-adapt{j+1:02d}')
         print(f'{run_id}: # train: {len(trn)}; # dev: {len(dev)}; # test: {len(tgt_test_dataset)}')
         split_sizes.append( [run_id, len(trn), len(dev), len(tgt_test_idxs)])
-
+        
         # continue training from best checkpoint of last run
         last_checkpoint = last_checkpoints[-1]
         _, model_path, _ = train_and_test(
@@ -269,7 +278,7 @@ fp = os.path.join(args.experiment_results_path, args.experiment_name, 'config.js
 with open(fp, 'w') as file:
     json.dump(args.__dict__, file, indent=2)
 
-split_sizes = pd.DataFrame(split_sizes, columns=['run_id', 'n_train', 'n_dev', 'n_test'])
+split_sizes = pd.DataFrame(split_sizes, columns=['run_id', 'n_train', 'n_val', 'n_test'])
 fp = os.path.join(args.experiment_results_path, args.experiment_name, 'split_sizes.tsv')
 split_sizes.to_csv(fp, sep='\t', index=False)
 

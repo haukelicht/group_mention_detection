@@ -18,7 +18,7 @@ args.source_domain_test_size = 0.1
 args.target_domain_test_size = 0.2
 
 args.source_domain_key = 'domain'
-args.source_domain_devues = 'uk-manifestos'
+args.source_domain_values = 'uk-manifestos'
 
 args.model_name = 'roberta-base'
 args.metric = 'seqeval-SG_f1'
@@ -43,7 +43,7 @@ label2id = {l: i for i, l in enumerate(scheme)}
 id2label = {i: l for i, l in enumerate(scheme)}
 NUM_LABELS = len(label2id)
 
-args.source_domain_devues = [v.strip() for v in args.source_domain_devues.split(',')]
+args.source_domain_values = [v.strip() for v in args.source_domain_values.split(',')]
 
 
 # #### Load libraries
@@ -94,6 +94,11 @@ set_seed(args.seeds[0])
 tokenizer = AutoTokenizer.from_pretrained(args.model_name, use_fast=True, add_prefix_space=True)
 assert isinstance(tokenizer, transformers.PreTrainedTokenizerFast)
 
+def create_dataset(data):
+    dataset = create_token_classification_dataset(data)
+    dataset = dataset.map(lambda example: tokenize_and_align_sequence_labels(example, tokenizer=tokenizer), batched=True)
+    dataset = dataset.remove_columns('tokens')
+    return dataset
 
 def model_init(model_name_or_path: str=args.model_name):
     model = AutoModelForTokenClassification.from_pretrained(
@@ -141,8 +146,8 @@ def parse_record(d):
 data = [parse_record(d) for d in data]
 
 
-source_data = [d for d in data if d[args.source_domain_key] in args.source_domain_devues]
-target_data = [d for d in data if d[args.source_domain_key] not in args.source_domain_devues]
+source_data = [d for d in data if d[args.source_domain_key] in args.source_domain_values]
+target_data = [d for d in data if d[args.source_domain_key] not in args.source_domain_values]
 print(len(data), len(source_data), len(target_data))
 del data
 
@@ -190,36 +195,21 @@ for i, (train_idxs, test_idxs) in enumerate(repeats.split(source_data, groups=so
     seed = args.seeds[i]
     
     # create source domain test split
-    src_test_dataset = create_token_classification_dataset([source_data[idx] for idx in test_idxs])
-    src_test_dataset = src_test_dataset.map(lambda example: tokenize_and_align_sequence_labels(example, tokenizer=tokenizer), batched=True)
-    src_test_dataset = src_test_dataset.remove_columns('tokens')
-
+    src_test_dataset = create_dataset([source_data[idx] for idx in test_idxs])
 
     # create source domain train/dev split
     gkf = GroupKFold(n_splits=5)
     src_trn, src_dev = next(gkf.split(train_idxs, groups=source_sentence_docs[train_idxs]))
     
-    src_train_dataset = create_token_classification_dataset([source_data[idx] for idx in src_trn])
-    src_train_dataset = src_train_dataset.map(lambda example: tokenize_and_align_sequence_labels(example, tokenizer=tokenizer), batched=True)
-    src_train_dataset = src_train_dataset.remove_columns('tokens')
-
-    src_dev_dataset = create_token_classification_dataset([source_data[idx] for idx in src_dev])
-    src_dev_dataset = src_dev_dataset.map(lambda example: tokenize_and_align_sequence_labels(example, tokenizer=tokenizer), batched=True)
-    src_dev_dataset = src_dev_dataset.remove_columns('tokens')
-
+    src_train_dataset = create_dataset([source_data[idx] for idx in src_trn])
+    src_dev_dataset = create_dataset([source_data[idx] for idx in src_dev])
 
     # create target domain train/test split
     gkf = GroupKFold(n_splits=math.ceil(1/args.target_domain_test_size))
     tgt_train_idxs, tgt_test_idxs = next(gkf.split(target_data, groups=target_sentence_docs))
     
-    tgt_train_dataset = create_token_classification_dataset([target_data[idx] for idx in tgt_train_idxs])
-    tgt_train_dataset = tgt_train_dataset.map(lambda example: tokenize_and_align_sequence_labels(example, tokenizer=tokenizer), batched=True)
-    tgt_train_dataset = tgt_train_dataset.remove_columns('tokens')
-
-    tgt_test_dataset = create_token_classification_dataset([target_data[idx] for idx in tgt_test_idxs])
-    tgt_test_dataset = tgt_test_dataset.map(lambda example: tokenize_and_align_sequence_labels(example, tokenizer=tokenizer), batched=True)
-    tgt_test_dataset = tgt_test_dataset.remove_columns('tokens')
-    
+    tgt_train_dataset = create_dataset([target_data[idx] for idx in tgt_train_idxs])
+    tgt_test_dataset = create_dataset([target_data[idx] for idx in tgt_test_idxs])
 
     print('-'*53)
     run_id = str(f'rep{i+1:02d}-baseline')
@@ -258,14 +248,8 @@ for i, (train_idxs, test_idxs) in enumerate(repeats.split(source_data, groups=so
         gkf = GroupKFold(n_splits=math.ceil(1/args.target_domain_test_size))
         trn, dev = next(gkf.split(chunk, groups=target_sentence_docs[chunk]))
         
-        tgt_train_dataset = create_token_classification_dataset([target_data[idx] for idx in trn])
-        tgt_train_dataset = tgt_train_dataset.map(lambda example: tokenize_and_align_sequence_labels(example, tokenizer=tokenizer), batched=True)
-        tgt_train_dataset = tgt_train_dataset.remove_columns('tokens')
-
-        tgt_dev_dataset = create_token_classification_dataset([target_data[idx] for idx in dev])
-        tgt_dev_dataset = tgt_dev_dataset.map(lambda example: tokenize_and_align_sequence_labels(example, tokenizer=tokenizer), batched=True)
-        tgt_dev_dataset = tgt_dev_dataset.remove_columns('tokens')
-
+        tgt_train_dataset = create_dataset([target_data[idx] for idx in trn])
+        tgt_dev_dataset = create_dataset([target_data[idx] for idx in dev])
 
         run_id = str(f'rep{i+1:02d}-adapt{j+1:02d}')
         print(f'{run_id}: # train: {len(trn)}; # dev: {len(dev)}; # test: {len(tgt_test_dataset)}')
