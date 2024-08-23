@@ -105,7 +105,7 @@ assert isinstance(tokenizer, PreTrainedTokenizerFast)
 
 # discard unsure labels
 tokens, labels = prepare_token_labels(list(data.values()), discard_unsure=True)
-dataset_humans = create_token_classification_dataset([{'tokens': toks, 'labels': labs}for toks, labs in zip(tokens, labels)])
+dataset_humans = create_token_classification_dataset([{'tokens': toks, 'labels': labs} for toks, labs in zip(tokens, labels)])
 dataset_humans = dataset_humans.map(lambda example: tokenize_and_align_sequence_labels(example, tokenizer=tokenizer), batched=True)
 
 # note: take the tokens from the human-labeled data to ensure that word indexes are aligned across datasets
@@ -130,7 +130,7 @@ recode_map[label2id['B-SG']] = 2
 
 
 labels_human = recode_labels(dataset_humans['labels'], recode_map)
-labels_dictionary = recode_labels(dataset_dictionary['labels'], recode_map)
+labels_dictionary = dataset_dictionary['labels']
 
 
 # note: this evaluation scheme mirrors our 5x5 cross-validation setup, making results directly comparable
@@ -155,6 +155,6 @@ for i, (_, test_index) in enumerate(folds.split(data, groups=sentence_docs)):
 
 
 means = pd.DataFrame(eval_res).apply(lambda x: x.mean(), axis=0).to_dict()
-parse_eval_result(means, types=['SG'])
+print(parse_eval_result(means, types=['SG']))
 
 

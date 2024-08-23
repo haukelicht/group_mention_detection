@@ -1,11 +1,9 @@
 #!/bin/bash
 #SBATCH --time=01:30:00
-#SBATCH --gpus=1
-#SBATCH --gres=gpumem:24G
 #SBATCH --mem-per-cpu=16G
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=hauke.licht@uibk.ac.at
-#SBATCH --job-name=validate_dictionary
+#SBATCH --job-name=validation_dictionary
 #SBATCH --output=logs/%x.log
 #SBATCH --error=logs/%x.err
 

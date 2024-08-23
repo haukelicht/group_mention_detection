@@ -155,6 +155,6 @@ for i, (_, test_index) in enumerate(folds.split(data, groups=sentence_docs)):
 
 
 means = pd.DataFrame(eval_res).apply(lambda x: x.mean(), axis=0).to_dict()
-parse_eval_result(means, types=['SG'])
+print(parse_eval_result(means, types=['SG']))
 
 
