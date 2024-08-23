@@ -5,7 +5,7 @@
 #SBATCH --mem-per-cpu=16G
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=hauke.licht@uibk.ac.at
-#SBATCH --job-name=cross-lingual-transfer_experiment
+#SBATCH --job-name=finetune_uk-man_token_classifier
 #SBATCH --output=logs/%x.log
 #SBATCH --error=logs/%x.err
 
@@ -40,14 +40,16 @@ export HF_HOME=$(pwd)/../.hf_models
 # message "Running cross-domain transfer experiment"
 # python run_cross-domain-transfer_experiment.py # takes ~1h
 
+# message "Running cross-lingual transfer experiment"
+# python run_cross-lingual-transfer_experiment.py # takes ~1h
 
 # ~+~+~ Fine-tuning and inference ~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~ #
 
-# message "Training token classifier on labeled sentences from UK manifestos"
-# python finetune_token_classifier.py
+message "Training token classifier on labeled sentences from UK manifestos"
+python finetune_token_classifier.py # takes ~0:01h
 
-# message "Applying token classifier to unlabeled UK manifesto sentences"
-# python inference_token_classifier.py
+message "Applying token classifier to unlabeled UK manifesto sentences"
+python inference_token_classifier.py # takes ~0:01h
 
 
 # ~+~+~ Measurement validation and benchmarking ~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~ #
