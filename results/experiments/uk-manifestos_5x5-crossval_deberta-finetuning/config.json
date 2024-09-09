@@ -1,0 +1,32 @@
+{
+  "experiment_name": "uk-manifestos_5x5-crossval_deberta-finetuning",
+  "experiment_results_path": "./../results/experiments",
+  "data_file": "../data/annotation/labeled/uk-manifestos_all_labeled.jsonl",
+  "types": [
+    "SG",
+    "PG",
+    "PI",
+    "ORG",
+    "ISG"
+  ],
+  "discard_types": [
+    "unsure"
+  ],
+  "nrepeats": 5,
+  "nfolds": 5,
+  "seeds": [
+    1234,
+    2345,
+    3456,
+    4567,
+    5678
+  ],
+  "test_size": 0.1,
+  "model_name": "microsoft/deberta-v3-base",
+  "epochs": 10,
+  "learning_rate": 4e-05,
+  "train_batch_size": 32,
+  "eval_batch_size": 64,
+  "weight_decay": 0.3,
+  "metric": "seqeval-SG_f1"
+}
