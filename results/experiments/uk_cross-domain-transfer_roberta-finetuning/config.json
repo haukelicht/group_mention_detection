@@ -28,7 +28,7 @@
   "source_domain_test_size": 0.1,
   "target_domain_test_size": 0.2,
   "source_domain_key": "domain",
-  "source_domain_devues": [
+  "source_domain_values": [
     "uk-manifestos"
   ],
   "model_name": "roberta-base",

@@ -1,30 +1,30 @@
 {
   "microsoft/deberta-v3-base": {
-    "learning_rate": 9e-06,
-    "per_device_train_batch_size": 8,
+    "learning_rate": 4e-05,
+    "per_device_train_batch_size": 32,
     "weight_decay": 0.3,
-    "seqeval-SG_f1": 0.7351828499369484,
-    "elapsed": 4156.114013032056
+    "seqeval-SG_f1": 0.7561290322580646,
+    "elapsed": 2300.0493078319705
   },
   "roberta-base": {
-    "learning_rate": 2e-05,
-    "per_device_train_batch_size": 8,
+    "learning_rate": 9e-06,
+    "per_device_train_batch_size": 16,
     "weight_decay": 0.01,
-    "seqeval-SG_f1": 0.7468827930174563,
-    "elapsed": 2813.5512540889904
+    "seqeval-SG_f1": 0.7374371859296482,
+    "elapsed": 1354.3805441579898
   },
   "bert-base-cased": {
     "learning_rate": 9e-06,
-    "per_device_train_batch_size": 8,
-    "weight_decay": 0.3,
-    "seqeval-SG_f1": 0.7141979102642901,
-    "elapsed": 2477.1355359491426
+    "per_device_train_batch_size": 16,
+    "weight_decay": 0.01,
+    "seqeval-SG_f1": 0.7170278637770897,
+    "elapsed": 1317.567886525998
   },
   "distilbert-base-cased": {
-    "learning_rate": 2e-05,
-    "per_device_train_batch_size": 8,
-    "weight_decay": 0.01,
-    "seqeval-SG_f1": 0.6817348808796578,
-    "elapsed": 1656.8298950430471
+    "learning_rate": 4e-05,
+    "per_device_train_batch_size": 16,
+    "weight_decay": 0.3,
+    "seqeval-SG_f1": 0.6804770872567483,
+    "elapsed": 806.8295820950298
   }
 }
