@@ -4,7 +4,6 @@ from types import SimpleNamespace
 
 args = SimpleNamespace()
 
-args.model_name = 'roberta-base'
 
 args.experiment_name = 'cap_classifier'
 args.experiment_results_path = './../results/classifiers'
@@ -18,13 +17,14 @@ args.test_size = 2000
 args.dev_size = 2000
 args.split_stratify_cols = 'party,year'
 
-args.metric = 'f1_macro'
+args.model_name = 'roberta-base'
 args.epochs = 10
 args.learning_rate = 5e-05
 args.weight_decay = 0.2
 args.train_batch_size = 32
 args.eval_batch_size = 64
 
+args.metric = 'f1_macro'
 
 args.split_stratify_cols = [] if args.split_stratify_cols is None else [c.strip() for c in args.split_stratify_cols.split(',')]
 

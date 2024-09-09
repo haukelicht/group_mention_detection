@@ -2,9 +2,8 @@ from types import SimpleNamespace
 
 args = SimpleNamespace()
 
-args.model_name = 'roberta-base'
 
-args.experiment_name = 'uk-manifestos_roberta'
+args.experiment_name = 'uk-manifestos_deberta'
 args.experiment_results_path = './../results/classifiers'
 
 args.data_file = '../data/annotation/labeled/uk-manifestos_all_labeled.jsonl'
@@ -15,13 +14,21 @@ args.test_size = 0.1
 args.dev_size = 0.1
 args.seed = 1234
 
-args.metric = 'seqeval-SG_f1'
-args.epochs=10
-args.learning_rate=2e-5
-args.train_batch_size=8
-args.eval_batch_size=64
-args.weight_decay=0.01
+#args.model_name = 'roberta-base'
+#args.epochs=10
+#args.learning_rate=2e-5
+#args.train_batch_size=8
+#args.eval_batch_size=64
+#args.weight_decay=0.01
 
+args.model_name = 'microsoft/deberta-v3-base'
+args.epochs=10
+args.learning_rate = 4e-05
+args.train_batch_size = 32
+args.eval_batch_size=64
+args.weight_decay = 0.3
+
+args.metric = 'seqeval-SG_f1'
 
 
 # argument parsing and configuration

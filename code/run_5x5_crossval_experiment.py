@@ -3,8 +3,7 @@ from types import SimpleNamespace
 
 args = SimpleNamespace()
 
-args.model_name = 'roberta-base'
-args.experiment_name = 'uk-manifestos_5x5-crossval_roberta-finetuning'
+args.experiment_name = 'uk-manifestos_5x5-crossval_deberta-finetuning'
 args.experiment_results_path = './../results/experiments'
 
 args.data_file = '../data/annotation/labeled/uk-manifestos_all_labeled.jsonl'
@@ -16,14 +15,21 @@ args.nfolds = 5
 args.seeds = '1234,2345,3456,4567,5678'
 args.test_size = 0.1
 
-args.metric = 'seqeval-SG_f1'
-args.epochs=10
-# use best hyperparams identified in Transformer model comparison experiment 
-args.learning_rate=2e-05
-args.train_batch_size=8
-args.weight_decay=0.01
-args.eval_batch_size=64
+#args.model_name = 'roberta-base'
+#args.epochs=10
+#args.learning_rate=2e-05
+#args.train_batch_size=8
+#args.weight_decay=0.01
+#args.eval_batch_size=64
 
+args.model_name = 'microsoft/deberta-v3-base'
+args.epochs=10
+args.learning_rate = 4e-05
+args.train_batch_size = 32
+args.eval_batch_size=64
+args.weight_decay = 0.3
+
+args.metric = 'seqeval-SG_f1'
 
 # argument parsing and configuration
 args.seeds = [int(seed.strip()) for seed in args.seeds.split(',')]
