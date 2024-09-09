@@ -157,4 +157,5 @@ for i, (_, test_index) in enumerate(folds.split(data, groups=sentence_docs)):
 means = pd.DataFrame(eval_res).apply(lambda x: x.mean(), axis=0).to_dict()
 print(parse_eval_result(means, types=['SG']))
 
+# IMPORTANT: doc-level scores are not very meaningful because the annotations we have reconstructed from Thau's data only inlcude sentences with min. one social group appeal annotation
 

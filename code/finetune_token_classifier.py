@@ -11,7 +11,7 @@ args.data_file = '../data/annotation/labeled/uk-manifestos_all_labeled.jsonl'
 args.types = 'SG,PG,PI,ORG,ISG'
 args.discard_types = 'unsure'
 
-args.test_size = 0.1 # consider setting this to 0 (no need to waste data given that this classifier is for labeling unlabeled data and we have already estimated OOS performance in the 5x5 CV experiment)
+args.test_size = 0.1
 args.dev_size = 0.1
 args.seed = 1234
 
@@ -61,7 +61,7 @@ from utils.classification import (
     train_and_test
 )
 
-from utils.evaluation import compute_token_classification_metrics, parse_eval_result
+from utils.evaluation import parse_token_classifier_prediction_output, compute_token_classification_metrics, parse_eval_result
 
 
 device = 'cuda:0' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
@@ -90,10 +90,8 @@ def model_init():
 
 
 # custom helper functions
-from transformers.trainer_utils import PredictionOutput
-def compute_metrics(p: PredictionOutput):
-    predictions, labels = p
-    predictions = np.argmax(predictions, axis=2)
+def compute_metrics(p):
+    labels, predictions = parse_token_classifier_prediction_output(p)
     return compute_token_classification_metrics(y_true=labels, y_pred=predictions, label2id=label2id)
 
 
