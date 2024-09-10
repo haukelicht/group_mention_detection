@@ -1,0 +1,41 @@
+{
+  "experiment_name": "manifestos_cross-lingual-transfer_mdeberta-finetuning",
+  "experiment_results_path": "./../results/experiments",
+  "data_files": [
+    "../data/annotation/labeled/uk-manifestos_all_labeled.jsonl",
+    "../data/annotation/labeled/de-manifestos_all_labeled.jsonl"
+  ],
+  "types": [
+    "SG",
+    "PG",
+    "PI",
+    "ORG",
+    "ISG"
+  ],
+  "discard_types": [
+    "unsure"
+  ],
+  "test_size": 0.1,
+  "seeds": [
+    1234,
+    2345,
+    3456,
+    4567,
+    5678
+  ],
+  "nrepeats": 5,
+  "nchunks": 5,
+  "source_domain_test_size": 0.1,
+  "target_domain_test_size": 0.2,
+  "source_domain_key": "country",
+  "source_domain_values": [
+    "uk"
+  ],
+  "model_name": "microsoft/mdeberta-v3-base",
+  "epochs": 10,
+  "learning_rate": 4e-05,
+  "train_batch_size": 32,
+  "eval_batch_size": 64,
+  "weight_decay": 0.3,
+  "metric": "seqeval-SG_f1"
+}
