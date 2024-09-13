@@ -1,5 +1,4 @@
 {
-  "model_name": "roberta-base",
   "experiment_name": "uk-manifestos_roberta",
   "experiment_results_path": "./../results/classifiers",
   "data_file": "../data/annotation/labeled/uk-manifestos_all_labeled.jsonl",
@@ -16,10 +15,11 @@
   "test_size": 0.1,
   "dev_size": 0.1,
   "seed": 1234,
-  "metric": "seqeval-SG_f1",
+  "model_name": "microsoft/deberta-v3-base",
   "epochs": 10,
-  "learning_rate": 2e-05,
-  "train_batch_size": 8,
+  "learning_rate": 9e-06,
+  "train_batch_size": 16,
   "eval_batch_size": 64,
-  "weight_decay": 0.01
+  "weight_decay": 0.01,
+  "metric": "seqeval-SG_f1"
 }

@@ -290,7 +290,8 @@ for i, (train_idxs, test_idxs) in enumerate(repeats.split(source_data, groups=so
         # free up disc space
         remove = last_checkpoints.pop(0)
         shutil.rmtree(remove)
-
+    for fp in last_checkpoints:
+        shutil.rmtree(fp)
 
 # finally: write config and split_sizes to experiment folder
 fp = os.path.join(args.experiment_results_path, args.experiment_name, 'config.json')

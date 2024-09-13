@@ -1,5 +1,4 @@
 {
-  "model_name": "roberta-base",
   "experiment_name": "uk-manifestos_training-size_roberta-finetuning",
   "experiment_results_path": "./../results/experiments",
   "data_file": "../data/annotation/labeled/uk-manifestos_all_labeled.jsonl",
@@ -24,10 +23,11 @@
   ],
   "nrepeats": 5,
   "train_chunk_size": 1000,
-  "metric": "seqeval-SG_f1",
+  "model_name": "roberta-base",
   "epochs": 10,
-  "learning_rate": 2e-05,
+  "learning_rate": 4e-05,
   "train_batch_size": 8,
-  "weight_decay": 0.01,
-  "eval_batch_size": 64
+  "eval_batch_size": 64,
+  "weight_decay": 0.3,
+  "metric": "seqeval-SG_f1"
 }

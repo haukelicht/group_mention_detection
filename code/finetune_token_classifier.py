@@ -3,7 +3,7 @@ from types import SimpleNamespace
 args = SimpleNamespace()
 
 
-args.experiment_name = 'uk-manifestos_deberta'
+args.experiment_name = 'uk-manifestos_roberta'
 args.experiment_results_path = './../results/classifiers'
 
 args.data_file = '../data/annotation/labeled/uk-manifestos_all_labeled.jsonl'
@@ -23,10 +23,10 @@ args.seed = 1234
 
 args.model_name = 'microsoft/deberta-v3-base'
 args.epochs=10
-args.learning_rate = 4e-05
-args.train_batch_size = 32
+args.learning_rate = 9e-06
+args.train_batch_size = 16
 args.eval_batch_size=64
-args.weight_decay = 0.3
+args.weight_decay = 0.01
 
 args.metric = 'seqeval-SG_f1'
 

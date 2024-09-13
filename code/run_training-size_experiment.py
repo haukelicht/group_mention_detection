@@ -4,7 +4,7 @@ from types import SimpleNamespace
 
 args = SimpleNamespace()
 
-args.experiment_name = 'uk-manifestos_training-size_deberta-finetuning'
+args.experiment_name = 'uk-manifestos_training-size_roberta-finetuning'
 args.experiment_results_path = './../results/experiments'
 
 args.data_file = '../data/annotation/labeled/uk-manifestos_all_labeled.jsonl'
@@ -23,10 +23,11 @@ args.train_chunk_size = 1000
 #args.weight_decay=0.01
 #args.eval_batch_size=64
 
-args.model_name = 'microsoft/mdeberta-v3-base'
+# note: using RoBERTa here because of issue to get DeBERTa to learn with smaller N_train
+args.model_name = 'roberta-base'
 args.epochs=10
-args.learning_rate = 4e-05
-args.train_batch_size = 32
+args.learning_rate = 4e-05 # increasing learning rate 
+args.train_batch_size = 8 # decrease batch size
 args.eval_batch_size=64
 args.weight_decay = 0.3
 
