@@ -1,0 +1,16 @@
+\begin{table}[!t]
+
+\caption{\label{tab:dictionary_expansion_effort_estimates}Number of unqiue keywords in set added through word embedding-based expansion depending on $k$, the number of nearest neighbours considered per ``seed'' keyword. Rows indicate the number of words in the nearest neighbor set that are/are not among the ``seed'' keywords.}
+\centering
+\fontsize{10}{12}\selectfont
+\begin{tabular}[t]{rrrrr}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{4}{c}{$k$} \\
+\cmidrule(l{3pt}r{3pt}){2-5}
+among seed keywords & 10 & 25 & 50 & 100\\
+\midrule
+yes & 94 & 119 & 129 & 143\\
+no & 1412 & 3546 & 7026 & 13742\\
+\bottomrule
+\end{tabular}
+\end{table}

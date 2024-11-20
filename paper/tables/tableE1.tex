@@ -1,0 +1,18 @@
+\begin{table}[!h]
+
+\caption{\label{tab:uk-manifestos_model-comparison}Results of model comparions and hyper-parameter search of token classifier fine-tuned for social group mention detection in UK manifestos dataset. Table reports development set results of best model per pre-fine-tuned model in terms of the \texttt{seqeval} F1 score. For each model, we searched the following hyper-parameters for three trials with the TPE (Tree-structured Parzen Estimator) algorithm: learning rate $\in \{9e^{-6}, 2e^{-5}, 4e^{-5}\}$, training batch size $\in \{8, 16, 32\}$, and weight decay $\in \{0.01, 0.1, 0.3\}$ \emph{Note:} \texttt{seqeval} is the strict metric proposed by \citet{ramshaw_text_1995} and implemented by \citet{nakayama_seqeval_2018}.}
+\centering
+\fontsize{10}{12}\selectfont
+\begin{tabular}[t]{lccccc}
+\toprule
+\multicolumn{3}{c}{ } & \multicolumn{3}{c}{Best hyper-parameters} \\
+\cmidrule(l{3pt}r{3pt}){4-6}
+  & F1 & total time elapsed & learning rate & batch size & weight decay\\
+\midrule
+microsoft/deberta-v3-base & 0.756 & 00:38:20 & $4e^{-05}$ & 32 & 0.30\\
+roberta-base & 0.737 & 00:22:34 & $9e^{-06}$ & 16 & 0.01\\
+bert-base-cased & 0.717 & 00:21:57 & $9e^{-06}$ & 16 & 0.01\\
+distilbert-base-cased & 0.680 & 00:13:26 & $4e^{-05}$ & 16 & 0.30\\
+\bottomrule
+\end{tabular}
+\end{table}

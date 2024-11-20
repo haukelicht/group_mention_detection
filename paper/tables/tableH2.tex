@@ -1,0 +1,32 @@
+
+\begin{table}
+\caption{Adjusted coefficient estimates obtained with design-based supervised learning method propsed by \citet{egami_using_2024} for logistic regression regressing binary sentence-level indicator of the use of LIWC emotion words (positive or negative/positive/negative) in the sentence on indicator for whether the sentence is predicted to mention at least one social group by our RoBERTa group mention detection classifier in the Conservative and Labour party manifestos in our UK corpus.}
+\begin{center}
+\begin{threeparttable}
+\begin{tabular}{l D{.}{.}{5.6} D{.}{.}{5.6} D{.}{.}{5.6}}
+\toprule
+ & \multicolumn{1}{c}{Emotions} & \multicolumn{1}{c}{Positive emotions} & \multicolumn{1}{c}{Negative emotions} \\
+\midrule
+Contains social group mention(s)   & 0.173^{***} & 0.083^{*}   & 0.169^{**}   \\
+                                   & (0.044)     & (0.041)     & (0.056)      \\
+Progressive--conservative position & 0.007^{***} & 0.006^{*}   & -0.002       \\
+                                   & (0.002)     & (0.003)     & (0.004)      \\
+State--market position             & 0.002       & 0.002       & 0.007^{*}    \\
+                                   & (0.001)     & (0.002)     & (0.003)      \\
+Prime minister party               & -0.084^{*}  & 0.063       & -0.321^{***} \\
+                                   & (0.038)     & (0.045)     & (0.046)      \\
+$N$ tokens                         & 0.068^{***} & 0.062^{***} & 0.035^{***}  \\
+                                   & (0.002)     & (0.002)     & (0.002)      \\
+\midrule
+mean RMSE                          & 0.179       & 0.179       & 0.179        \\
+Num. obs.                          & 25865       & 25865       & 25865        \\
+Num. labeled                       & 6774        & 6774        & 6774         \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\scriptsize{\item $^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$. \item All models include election fixed effects. \item Standard errors clustered by party and election.}
+\end{tablenotes}
+\end{threeparttable}
+\label{tab:regression_coefficients_dsl}
+\end{center}
+\end{table}

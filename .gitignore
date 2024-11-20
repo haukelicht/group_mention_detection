@@ -1,22 +1,45 @@
+todos.md
+README.Rmd
+README.pdf
+tree_view.png
 
+**/*_overview.md
+*/**/*_overview.md
 
-code/*.ipynb
+ui/
+
 code/test_*
+code/_test/
+code/sandbox.ipynb
+code/**/sandbox.ipynb
+code/**/_notebooks/
+code/xx_*.ipynb
+code/*/xx_deprecated/
 code/logs/
+code/**/logs
+
+data/annotation/annotations/**/parsed/
+
+*/**/xx_deprecated/
 
 results/classifiers/**/best_model
 results/**/checkpoints/
 results/experiments/**/*best_model
+results/**/*backup.zip
 
-# misc
-code/sandbox.ipynb
-code/xx_*.ipynb
-code/*/xx_deprecated/
-.DS_Store
 
 # EULER HPC
 setup_euler.sh
 .hf_models/
+
+# misc
+.DS_Store
+*/**/.DS_Store
+
+## R
+.Rapp.history
+get_r_dependencies.R
+paper/parse_references.R
 
 ## Python
 

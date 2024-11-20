@@ -1,0 +1,17 @@
+\begin{table}[!th]
+
+\caption{\label{tab:uk-manifestos_5x5-crossval_deberta-finetuning_testset_sg}Summary of test set performances of DeBERTa group mention detection classifiers fine-tuned and evaluated on our corpus of labeled UK manifesto sentences. Values (in brackets) report the average (90\% quantile range) of performances of 25 different classifiers fine-tuned in a 5-times repeated 5-fold cross-validation scheme. Columns distinguish between different evaluation schemes (i.e., different ways to compute the eval. metrics). \emph{Note:} \texttt{seqeval} is the strict metric proposed by \citet{ramshaw_text_1995} and implemented by \citet{nakayama_seqeval_2018}.}
+\centering
+\fontsize{10}{12}\selectfont
+\begin{tabular}[t]{lcccc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{3}{c}{Mention level} & \multicolumn{1}{c}{ } \\
+\cmidrule(l{3pt}r{3pt}){2-4}
+  & \texttt{seqeval} & cross-span avg. & within-sentence avg. & Sentence level\\
+\midrule
+F1 & 0.83 [0.77, 0.90] & 0.87 [0.81, 0.92] & 0.88 [0.79, 0.94] & 0.95 [0.92, 0.97]\\
+Precision & 0.81 [0.73, 0.89] & 0.88 [0.81, 0.92] & 0.89 [0.79, 0.94] & 0.95 [0.90, 0.97]\\
+Recall & 0.85 [0.78, 0.91] & 0.88 [0.82, 0.92] & 0.89 [0.81, 0.94] & 0.96 [0.93, 0.98]\\
+\bottomrule
+\end{tabular}
+\end{table}

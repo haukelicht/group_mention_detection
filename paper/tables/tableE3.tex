@@ -1,0 +1,16 @@
+\begin{table}[!h]
+
+\caption{\label{tab:uk-manifestos_roberta_testset_sg_recall_by_span_length}Average mention-level social group mention recall in test set of RoBERTa group mention detection classifier fine-tuned and evaluated on corpus of labeled UK manifesto sentences by number of words in span. \emph{Notes:} Test-set spans grouped into bins based on the number of words they contain at the 50, 80, and 90\% percentile values. For example, bin (0, 2] contains social group mentions that span up to two words, bin (2, 6] mentions that span between three to six words, etc. Recall values in square brackets report the 90\% confidence intervall computed from bootstrapped values.}
+\centering
+\fontsize{10}{12}\selectfont
+\begin{tabular}[t]{crr}
+\toprule
+Words in span & Average mention-level recall & $N_{\text{span}}$\\
+\midrule
+(0, 2] & 0.94 [0.91, 0.97] & 211\\
+(2, 4] & 0.86 [0.80, 0.92] & 65\\
+(4, 6] & 0.78 [0.68, 0.86] & 34\\
+(6, 16] & 0.66 [0.48, 0.80] & 24\\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,34 @@
+
+\begin{table}
+\caption{Logistic regression coefficient estimates from regressing binary sentence-level indicator of the use of LIWC emotion words (positive or negative/positive/negative) in the sentence on indicator for whether the sentence is predicted to mention at least one social group by our RoBERTa group mention detection classifier in all party manifestos in our UK corpus.}
+\begin{center}
+\begin{threeparttable}
+\begin{tabular}{l D{.}{.}{6.6} D{.}{.}{6.6} D{.}{.}{6.6}}
+\toprule
+ & \multicolumn{1}{c}{Emotions} & \multicolumn{1}{c}{Positive emotions} & \multicolumn{1}{c}{Negative emotions} \\
+\midrule
+Contains social group mention(s)   & 0.182^{***} & 0.105^{***} & 0.245^{***}  \\
+                                   & (0.031)     & (0.031)     & (0.048)      \\
+Progressive--conservative position & -0.004      & -0.008^{*}  & 0.003        \\
+                                   & (0.002)     & (0.003)     & (0.002)      \\
+State--market position             & 0.009^{***} & 0.011^{***} & 0.003        \\
+                                   & (0.002)     & (0.003)     & (0.003)      \\
+Prime minister party               & -0.051      & 0.102^{*}   & -0.303^{***} \\
+                                   & (0.038)     & (0.051)     & (0.047)      \\
+$N$ tokens                         & 0.064^{***} & 0.056^{***} & 0.029^{***}  \\
+                                   & (0.002)     & (0.002)     & (0.002)      \\
+\midrule
+AIC                                & 43495.358   & 46596.097   & 37676.708    \\
+BIC                                & 43673.636   & 46774.375   & 37854.986    \\
+Log Likelihood                     & -21726.679  & -23277.048  & -18817.354   \\
+Deviance                           & 43453.358   & 46554.097   & 37634.708    \\
+Num. obs.                          & 35934       & 35934       & 35934        \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\scriptsize{\item $^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$. \item All models include election fixed effects. \item Standard errors clustered by party and election.}
+\end{tablenotes}
+\end{threeparttable}
+\label{tab:regression_coefficients_all_parties}
+\end{center}
+\end{table}

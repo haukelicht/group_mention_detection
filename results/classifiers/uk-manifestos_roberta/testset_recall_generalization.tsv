@@ -1,0 +1,3 @@
+type	seen	recall	n
+SG	False	0.8080590542355248	165
+SG	True	0.9684418145956607	169

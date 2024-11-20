@@ -60,28 +60,7 @@ class AnnotatedDocument(Document):
         self.n_labels = len(self.labels)
         # generate string for print method
         self._generate_printable()
-
-    #    @classmethod
-    #    def from_manifest(cls, id: str, text: str, data: dict, outside_label: int, beginning_label: int, inside_label: int):
-    #        """construct AnnotatedDocument instance from AWS manifest line"""
-    #        tokens = super()._ws_tokenize(text)
-    #        annotations = dict()
-    #        for annotation in data:
-    #            # get annotator ID
-    #            assert "workerId" in annotation.keys()
-    #            annotator_id = annotation["workerId"]
-    #            # get annotations
-    #            assert "annotation" in annotation.keys()
-    #            # using IOB scheme (assuming a single label type)
-    #            labeled = np.full(len(tokens), outside_label, dtype=int)
-    #            for span in annotation["annotation"]["value"]:
-    #                labeled[span["start"]:span["end"]] = beginning_label
-    #                labeled[(span["start"]+1):span["end"]] = inside_label
-    #            
-    #            annotations[annotator_id] = labeled
-    #
-    #        return cls(id, text, annotations, None, outside_label)
-        
+    
     @classmethod
     def from_tokens(cls, id: str, tokens: str, annotations: dict, outside_label: int, unite_pattern = None):
         if unite_pattern:
@@ -167,7 +146,7 @@ class AnnotatedDocument(Document):
         if len(docs) == 1:
             return list()
         
-        # split annotations (and cleaned tokens, if any)    
+        # split annotations (and cleaned tokens, if any)
         out = list()
         first_tok = 0
         has_cleaned_tokens = hasattr(self, "tokens_cleaned_")

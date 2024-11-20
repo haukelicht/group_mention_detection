@@ -1,0 +1,10 @@
+Age/generation
+Economic class
+Ethnicity/race
+Gender
+Geography
+Health
+Nationality
+Religion
+Other
+none

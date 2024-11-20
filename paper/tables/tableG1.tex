@@ -1,0 +1,17 @@
+\begin{table}[!t]
+
+\caption{\label{tab:eval_uk-manifestos_all_metrics}Summary of test set performances in of Dolinsky-Huber-Howe dictionary evaluated in our human-annotated UK manifesto sentences. Values (in brackets) report the average (90\% quantile range) of performances across 5 folds Rows report results in terms of the F1-score, precision, and recall. Columns distinguish between different evaluation schemes. \emph{Note:} \texttt{seqeval} is the strict metric proposed by \citet{ramshaw_text_1995} and implemented by \citet{nakayama_seqeval_2018}.}
+\centering
+\fontsize{10}{12}\selectfont
+\begin{tabular}[t]{lccccc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{3}{c}{Mention level} & \multicolumn{2}{c}{ } \\
+\cmidrule(l{3pt}r{3pt}){2-4}
+ & \texttt{seqeval} & cross span avg. & within sentence avg. & Word level & Sentence level\\
+\midrule
+F1 & 0.16 [0.11, 0.22] & 0.12 [0.08, 0.15] & 0.11 [0.09, 0.16] & 0.10 [0.08, 0.11] & 0.29 [0.21, 0.33]\\
+Precision & 0.45 [0.37, 0.58] & 0.14 [0.11, 0.17] & 0.14 [0.10, 0.17] & 0.70 [0.62, 0.76] & 0.74 [0.66, 0.82]\\
+Recall & 0.10 [0.07, 0.14] & 0.11 [0.08, 0.14] & 0.11 [0.08, 0.15] & 0.05 [0.04, 0.06] & 0.18 [0.13, 0.21]\\
+\bottomrule
+\end{tabular}
+\end{table}

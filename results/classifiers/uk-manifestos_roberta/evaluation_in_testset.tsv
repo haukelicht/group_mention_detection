@@ -1,0 +1,994 @@
+sentence_nr	span_nr	text	type	recall
+0	0	The Labour Government	PG	1.0
+3	0	British Aerospace	ORG	1.0
+3	1	Cable & Wireless	ORG	1.0
+3	2	Amersham International	ORG	1.0
+3	3	Associated British Ports	ORG	1.0
+5	0	The new Queen Elizabeth Hospital	ORG	0.6
+6	0	unions	ORG	1.0
+6	1	employers	SG	1.0
+8	0	European Community	PI	1.0
+9	0	homosexuals	SG	1.0
+10	0	Migrants	SG	1.0
+10	1	the NHS	ORG	1.0
+11	0	all our citizens	SG	0.6666666666666666
+12	0	Rail workers	SG	1.0
+12	1	the trade unions	ORG	1.0
+12	2	others	ISG	1.0
+17	0	young people	SG	1.0
+17	1	students	SG	1.0
+17	2	people with disabilities	SG	1.0
+17	3	older people	SG	1.0
+19	0	full-time and part-time students	SG	1.0
+20	0	Conservative	PG	1.0
+21	0	Labour Government	PG	1.0
+21	1	people	ISG	1.0
+21	2	industry	ORG	1.0
+22	0	employers	SG	1.0
+22	1	schools	ORG	1.0
+22	2	colleges	ORG	1.0
+23	0	the trade unions and employers'associations	ORG	0.8571428571428571
+24	0	parents	SG	1.0
+24	1	children	SG	1.0
+24	2	grandparents	SG	1.0
+24	3	other family members	SG	1.0
+24	4	strong communities	ISG	1.0
+25	0	The National Lottery	ORG	1.0
+26	0	Teachers	SG	1.0
+27	0	chief constables who develop local schemes to crack down on petty crime and improve public order	SG	1.0
+28	0	children living in poverty	SG	1.0
+31	0	tenants	SG	1.0
+32	0	five, six and seven-year-olds	SG	1.0
+33	0	government	PI	1.0
+34	0	immigrants who have arrived lawfully	SG	1.0
+36	0	taxpayers	SG	1.0
+37	0	government	PI	1.0
+37	1	high quality public services	ORG	0.5
+38	0	the auditing industry	ORG	1.0
+38	1	a few players riddled with conflicts of interest	SG	0.75
+39	0	UKIP	PG	1.0
+39	1	a Royal Commission	PI	0.6666666666666666
+39	2	the NHS	ORG	1.0
+40	0	Labour	PG	1.0
+41	0	the TUC	ORG	1.0
+43	0	nation	ISG	0.0
+43	1	those who threaten it with unnecessary and dangerous change	SG	1.0
+44	0	union of nations	PI	0.0
+46	0	smaller businesses-and larger ones	ORG	0.75
+47	0	women	SG	1.0
+47	1	girls	SG	1.0
+50	0	society	ISG	1.0
+51	0	the Commonwealth	PI	1.0
+51	1	the United Nations	PI	1.0
+52	0	university	ORG	1.0
+52	1	able young people from all backgrounds	SG	1.0
+53	0	Britain's people	SG	1.0
+53	1	the women of our country	SG	1.0
+55	0	new city-region authorities	PI	0.6666666666666666
+55	1	residents	SG	1.0
+55	2	a Mayor, with London-style powers	PI	0.16666666666666666
+56	0	people	ISG	1.0
+58	0	community	ISG	1.0
+58	1	social services	ORG	1.0
+59	0	industry	ORG	1.0
+60	0	children's hospices	SG	0.25
+61	0	BBC	ORG	1.0
+62	0	Conservative government	PG	1.0
+64	0	Employers	SG	1.0
+65	0	Air Passenger	SG	0.0
+67	0	local authorities	PI	1.0
+67	1	adult	SG	1.0
+70	0	Parliament	PI	1.0
+70	1	MPs	PG	0.0
+71	0	government	PI	1.0
+72	0	young people	SG	1.0
+72	1	voluntary overseas service	ORG	1.0
+74	0	Labour Government	PG	1.0
+74	1	elected assemblies in Scotland and Wales	PI	0.0
+75	0	people entering the welfare system	SG	1.0
+75	1	the Benefits Agency and Employment Service	ORG	0.8333333333333334
+76	0	a Government	PI	0.5
+76	1	whose central economic policy is to increase tax and regulation by stealth	SG	0.0
+77	0	frontline pilots	SG	1.0
+80	0	government departments	PI	1.0
+80	1	public services	ORG	1.0
+81	0	people of Britain	SG	1.0
+82	0	independent prosecution service	PI	0.3333333333333333
+83	0	schools	ORG	1.0
+84	0	Parliament	PI	0.0
+84	1	local government	PI	1.0
+86	0	British customers	SG	1.0
+86	1	Britain's farmers	SG	1.0
+88	0	government	PI	1.0
+89	0	Labour	PG	1.0
+90	0	customs services	ORG	0.0
+93	0	carers who qualify for the Carer ’ s Allowance	SG	1.0
+95	0	diverse society	ISG	1.0
+96	0	freeholder	SG	1.0
+96	1	auditor	SG	0.0
+97	0	local authority	PI	0.0
+97	1	councils	PI	1.0
+98	0	the European Defence agency	PI	1.0
+101	0	selective schools	ORG	1.0
+101	1	pupils	SG	1.0
+104	0	overseas companies	ORG	1.0
+104	1	local people	SG	1.0
+105	0	the European Community	PI	1.0
+107	0	councils	PI	1.0
+108	0	the next Parliament	PI	0.0
+110	0	Labour	PG	1.0
+110	1	fundholding doctors	SG	1.0
+111	0	the SNP	PG	1.0
+111	1	the UK government	PI	1.0
+111	2	EU citizens applying for settled status	SG	0.6666666666666666
+113	0	Labour	PG	1.0
+115	0	Conservative government	PG	1.0
+116	0	people	ISG	1.0
+117	0	The new regional authorities	PI	1.0
+118	0	The National Security Council	PI	1.0
+118	1	government	PI	1.0
+119	0	everyone	ISG	1.0
+120	0	war widows	SG	1.0
+120	1	those disabled in the service of their country	SG	1.0
+121	0	victims	SG	1.0
+121	1	survivors	SG	1.0
+121	2	veterans	SG	1.0
+123	0	the UK government	PI	1.0
+123	1	providers	ORG	1.0
+123	2	all parties	PG	1.0
+126	0	organisations	ORG	1.0
+126	1	staff	SG	1.0
+126	2	patients	SG	1.0
+126	3	innovative social enterprises delivering community and mental health services	ORG	0.8888888888888888
+127	0	schools	ORG	1.0
+128	0	polytechnics	ORG	1.0
+128	1	colleges of education	ORG	1.0
+128	2	the universities	ORG	1.0
+129	0	population	ISG	0.0
+129	1	central government	PI	1.0
+129	2	local councils	PI	1.0
+130	0	cathedrals and churches	ORG	0.6666666666666666
+130	1	places of worship	ORG	0.0
+131	0	Corporations	ORG	1.0
+131	1	banks	ORG	1.0
+132	0	small exporters	ORG	1.0
+133	0	The Community	PI	0.0
+135	0	people	ISG	1.0
+135	1	the state	PI	0.0
+136	0	family	SG	0.0
+136	1	help low-paid working families	SG	0.75
+137	0	the House of Lords	PI	1.0
+138	0	individuals	ISG	1.0
+139	0	prison	ORG	0.0
+139	1	the most dangerous criminals	SG	1.0
+141	0	the late developer	SG	1.0
+142	0	child	SG	1.0
+143	0	The Liberals	PG	1.0
+143	1	Social Democrats	PG	1.0
+144	0	the UK Government and its institutions	PI	0.6666666666666666
+145	0	A separate Arts Council for Wales	PI	0.6666666666666666
+146	0	high-quality entrants	SG	1.0
+148	0	all employees	SG	1.0
+149	0	businesses	ORG	1.0
+150	0	the European Union	PI	1.0
+151	0	the old	SG	1.0
+151	1	the sick	SG	1.0
+151	2	the handicapped	SG	1.0
+151	3	the deprived	SG	1.0
+151	4	Labour	PG	1.0
+153	0	Parliament	PI	1.0
+155	0	Small community hospitals	ORG	1.0
+155	1	local patients	SG	1.0
+155	2	GPs	SG	1.0
+155	3	bureaucrats	SG	1.0
+157	0	Local Authorities	PI	1.0
+157	1	Weights and Measures Officers	PI	1.0
+157	2	customers	SG	1.0
+158	0	Britain's universities	ORG	1.0
+158	1	student	SG	1.0
+159	0	Labour	PG	1.0
+159	1	trade union	ORG	1.0
+160	0	new larger hospitals	ORG	0.3333333333333333
+161	0	other countries	ISG	0.0
+162	0	employees	SG	1.0
+162	1	colleagues in Europe	SG	0.3333333333333333
+163	0	the Party	PG	1.0
+165	0	shortage of men and women to operate most public services and to teach in the schools.	SG	0.4117647058823529
+167	0	Conservatives	PG	1.0
+167	1	criminals	SG	1.0
+167	2	prison	ORG	0.0
+167	3	judge	SG	1.0
+168	0	the British people	SG	1.0
+169	0	the fishing industry	ORG	1.0
+170	0	the Tories	PG	1.0
+171	0	independent Pensions ’ Commission	PI	0.75
+171	1	the Low Pay Commission	PI	1.0
+172	0	local businesses	ORG	1.0
+175	0	people	ISG	1.0
+175	1	local services	ORG	1.0
+175	2	too few shoulders	SG	0.0
+176	0	The DUP	PG	1.0
+176	1	people in Northern Ireland	SG	1.0
+177	0	Green	PG	1.0
+177	1	the EU	PI	1.0
+178	0	pensioners	SG	1.0
+179	0	a Task Force - headed by an independent chairman	PI	0.2222222222222222
+180	0	women over the age of 55	SG	1.0
+180	1	men	SG	1.0
+181	0	Conservative government	PG	1.0
+181	1	the British people	SG	1.0
+184	0	Labour	PG	1.0
+185	0	The Green Party	PG	1.0
+185	1	public services	ORG	1.0
+186	0	nation	ISG	0.0
+187	0	those hardest hit	SG	1.0
+188	0	Conservative Government	PG	1.0
+190	0	GPs	SG	1.0
+194	0	The Labour Government	PG	1.0
+194	1	Nato	PI	1.0
+197	0	organisations	ORG	1.0
+198	0	schools of high standing	ORG	1.0
+198	1	direct grant schools	ORG	1.0
+198	2	State schools	ORG	1.0
+198	3	fee paying schools	ORG	1.0
+199	0	family	SG	1.0
+199	1	workers in the UK	SG	1.0
+200	0	Small and family businesses	ORG	1.0
+201	0	dinner ladies	SG	1.0
+201	1	Ofsted	PI	0.0
+202	0	people	ISG	1.0
+203	0	people	ISG	1.0
+204	0	women	SG	1.0
+205	0	elderly or disabled relatives	SG	1.0
+206	0	teachers	SG	1.0
+206	1	doctors	SG	1.0
+206	2	nurses	SG	1.0
+206	3	welfare workers of all kinds	SG	1.0
+208	0	individuals	ISG	1.0
+208	1	the nation state	PI	1.0
+209	0	the Government	PI	1.0
+211	0	tourists	SG	1.0
+212	0	Labour	PG	1.0
+212	1	the disabled	SG	1.0
+213	0	Oil Conservation Authority	PI	1.0
+215	0	the NHS	ORG	1.0
+215	1	carers	SG	1.0
+215	2	carers	SG	1.0
+215	3	their NHS rights	ORG	0.3333333333333333
+217	0	the Government	PI	1.0
+217	1	regional politicians	PI	0.5
+218	0	select committees	PI	1.0
+219	0	People	ISG	1.0
+219	1	public services	ORG	1.0
+220	0	old people	SG	1.0
+222	0	Disabled people	SG	1.0
+222	1	people who cannot walk	SG	1.0
+223	0	politicians	PI	0.0
+224	0	Families	SG	1.0
+224	1	decent schools	ORG	0.5
+225	0	poor people	SG	1.0
+226	0	education authorities	ORG	0.0
+226	1	education authorities	ORG	0.0
+226	2	children	SG	1.0
+229	0	industries	ORG	1.0
+231	0	a loved one	ISG	0.0
+232	0	the NATO	PI	0.5
+233	0	some 1, 100, 000 people are being trained or helped	SG	0.0
+235	0	local authorities	PI	1.0
+235	1	Labour Ministers	PI	0.0
+240	0	Labour	PG	1.0
+240	1	the welfare state	PI	0.0
+241	0	employers	SG	1.0
+242	0	married couples	SG	1.0
+244	0	this country	ISG	1.0
+246	0	people	ISG	1.0
+247	0	men	SG	1.0
+247	1	women	SG	1.0
+247	2	the better off	SG	1.0
+249	0	NHS England	ORG	1.0
+250	0	a society	ISG	0.0
+250	1	government	PI	1.0
+250	2	people	ISG	1.0
+251	0	Women	SG	1.0
+251	1	the family	SG	1.0
+252	0	Labour	PG	1.0
+252	1	special schools	ORG	1.0
+252	2	children	SG	1.0
+253	0	widows	SG	1.0
+253	1	widowers	SG	1.0
+253	2	close relatives	SG	1.0
+255	0	agencies	ORG	0.0
+255	1	the United Nations	PI	1.0
+256	0	nationalised industries	ORG	1.0
+256	1	the private sector	ORG	1.0
+257	0	Conservative Government	PG	1.0
+257	1	Conservative-Liberal coalition	PG	1.0
+258	0	Labour	PG	1.0
+259	0	the Tories	PG	1.0
+259	1	people sleeping rough	SG	1.0
+262	0	our people	ISG	0.5
+263	0	parish councils	PI	1.0
+264	0	Government	PI	1.0
+264	1	Historical Investigations Unit	PI	1.0
+265	0	Labour	PG	1.0
+266	0	local planning authorities	PI	1.0
+266	1	public authorities	PI	1.0
+267	0	The Labour leaders	PG	1.0
+268	0	the families that need them	SG	0.2
+270	0	British Coal	ORG	1.0
+270	1	its workforce	ISG	0.0
+270	2	the industry	ORG	1.0
+271	0	Labour	PG	1.0
+273	0	14-16 year olds	SG	1.0
+275	0	Children	SG	1.0
+276	0	generations before us	SG	0.0
+278	0	public services	ORG	1.0
+279	0	SNP MPs	PG	1.0
+280	0	services on our main lines and commuter routes	SG	0.0
+280	1	services to places which are poorly served or host major new housing projects	SG	0.8461538461538461
+282	0	Labour	PG	1.0
+282	1	the Tory government	PG	1.0
+282	2	local authority services	PI	0.0
+285	0	Whitehall	PI	1.0
+287	0	schools	ORG	1.0
+287	1	off-rolling pupils with Special Educational Needs and Disability	SG	0.875
+287	2	those unlikely to succeed in examinations	SG	1.0
+288	0	Scottish Assembly	PI	1.0
+288	1	members of the assembly	PI	0.0
+289	0	industry	ORG	1.0
+289	1	a well-trained workforce	SG	0.6666666666666666
+290	0	The Labour Government	PG	1.0
+291	0	teachers	SG	1.0
+291	1	school	ORG	1.0
+292	0	competitors	ISG	0.0
+293	0	The SNP	PG	1.0
+293	1	Westminster	PI	1.0
+296	0	SNP MPs	PG	1.0
+296	1	people	ISG	1.0
+297	0	businesses	ORG	1.0
+299	0	Britain	ISG	0.0
+299	1	its population	ISG	0.5
+301	0	employers	SG	1.0
+301	1	employees	SG	1.0
+301	2	customers	SG	1.0
+301	3	businesses	ORG	1.0
+302	0	Conservative Government	PG	1.0
+303	0	government	PI	1.0
+304	0	The Government	PG	0.0
+304	1	Parliament	PI	1.0
+305	0	the European Union	PI	1.0
+306	0	the whole nation	ISG	1.0
+307	0	consumers	SG	1.0
+310	0	patient	SG	1.0
+310	1	NHS	ORG	1.0
+310	2	people	ISG	1.0
+311	0	opticians	ORG	0.0
+313	0	newly-qualified teachers	SG	1.0
+315	0	those who need help	SG	1.0
+315	1	the poor	SG	1.0
+315	2	the sick	SG	1.0
+315	3	the old	SG	1.0
+317	0	Women	SG	1.0
+317	1	government	PI	1.0
+317	2	Conservative government	PG	1.0
+318	0	the people of Britain	SG	1.0
+319	0	Everyone	ISG	1.0
+320	0	Labour	PG	1.0
+321	0	elected politicians	PG	0.0
+321	1	civil servants	SG	1.0
+322	0	The housewife	SG	1.0
+324	0	prisons	ORG	1.0
+324	1	borstals	ORG	1.0
+327	0	Labour	PG	1.0
+327	1	the road haulage industry	ORG	1.0
+328	0	Labour	PG	1.0
+328	1	people	ISG	1.0
+329	0	The DUP	PG	1.0
+330	0	the SNP	PG	1.0
+332	0	policemen	PI	0.0
+332	1	the public	ISG	1.0
+333	0	the Civil Service	ORG	0.3333333333333333
+334	0	counselling service	ORG	1.0
+334	1	all children in secondary schools	SG	1.0
+335	0	disadvantaged families	SG	1.0
+335	1	child	SG	1.0
+336	0	a nation with faith in itself	SG	0.8333333333333334
+336	1	a people with self-respect	SG	0.75
+337	0	armed forces	PI	1.0
+338	0	general practitioners	SG	1.0
+339	0	Permanent military Command for homeland Defence and Security	PI	0.875
+341	0	children	SG	1.0
+341	1	school	ORG	1.0
+344	0	Many others are dead and cannot correct this injustice themselves	SG	0.2
+344	1	government	PI	1.0
+345	0	larger companies	ORG	1.0
+345	1	women	SG	1.0
+346	0	Troubled Families	SG	0.0
+346	1	Stronger Families	SG	0.0
+346	2	children	SG	1.0
+348	0	nurses	SG	1.0
+348	1	pharmacists	SG	1.0
+348	2	paramedics	SG	1.0
+348	3	porters	SG	1.0
+348	4	health services	ORG	1.0
+348	5	patients	SG	1.0
+350	0	strong regional airline	ORG	0.6666666666666666
+351	0	fisheries	ORG	0.0
+352	0	Its peoples	ISG	1.0
+353	0	military	PI	0.0
+354	0	regulators	PI	1.0
+354	1	the strongest	ISG	0.0
+357	0	teachers worried about school trips	SG	1.0
+360	0	pupils	SG	1.0
+360	1	students	SG	1.0
+360	2	adults	SG	1.0
+361	0	Veterans	SG	1.0
+361	1	service leavers	SG	1.0
+362	0	family courts	PI	1.0
+365	0	Councils	ORG	0.0
+366	0	government departments	PI	1.0
+367	0	road building industry	ORG	1.0
+368	0	local government	PI	1.0
+368	1	ratepayers	SG	1.0
+369	0	our people	ISG	1.0
+369	1	key public services	ORG	0.6666666666666666
+369	2	the services	ORG	0.0
+371	0	Scottish society	ISG	1.0
+373	0	offenders	SG	1.0
+373	1	the community	ISG	1.0
+374	0	Labour	PG	1.0
+378	0	all citizens	SG	1.0
+379	0	local education authorities	PI	1.0
+379	1	secondary schools	ORG	1.0
+380	0	the Tories	PG	1.0
+381	0	Extremists, serious criminals and others	SG	0.5
+382	0	those now retiring early	SG	1.0
+382	1	people changing jobs	SG	1.0
+383	0	privately managed remand centre	ORG	1.0
+384	0	individual workers	SG	1.0
+385	0	Labour	PG	1.0
+385	1	one department of state	PI	0.75
+386	0	Monopolies Commission	PI	1.0
+387	0	political institutions	PI	1.0
+387	1	established over the past decade	SG	0.0
+389	0	Labour	PG	1.0
+392	0	the public and private sectors	ORG	1.0
+392	1	industrial enterprises	ORG	1.0
+395	0	the Labour Party	PG	1.0
+397	0	UK Labour government	PG	1.0
+398	0	universities	ORG	1.0
+400	0	arts and cultural organisations	ORG	1.0
+400	1	United Kingdom	ISG	0.0
+401	0	the people	ISG	1.0
+402	0	The DUP	PG	1.0
+402	1	the Conservative Party	PG	1.0
+406	0	landowners	SG	1.0
+406	1	local industry	ORG	1.0
+406	2	local authorities	PI	1.0
+407	0	Labour	PG	1.0
+407	1	employers who offer their employees private medical insurance	SG	1.0
+407	2	employee who has this benefit	SG	0.6
+408	0	politicians	PI	0.0
+410	0	primary school children	SG	1.0
+411	0	Prisons	ORG	1.0
+411	1	prisoners	SG	1.0
+412	0	small community groups	SG	0.6666666666666666
+413	0	Conservatives in government	PG	1.0
+413	1	the National Health Service	ORG	1.0
+414	0	Conservatives	PG	1.0
+414	1	those who work in rural areas	SG	1.0
+415	0	people	ISG	1.0
+415	1	people	ISG	1.0
+417	0	thriving communities	ISG	1.0
+419	0	Labour	PG	1.0
+420	0	children	SG	1.0
+421	0	the Commonwealth	PI	1.0
+423	0	bank branch	ORG	0.5
+423	1	local government	PI	1.0
+424	0	Society	ISG	0.0
+424	1	government	PI	1.0
+427	0	those who save, own property or make profits	SG	1.0
+428	0	Labour	PG	1.0
+431	0	people, both at home and abroad	SG	0.0
+432	0	disabled people	SG	1.0
+434	0	the nation	ISG	1.0
+434	1	our predecessors	ISG	1.0
+435	0	a body with statutory powers	PI	0.0
+436	0	each child	SG	0.5
+437	0	Labour	PG	1.0
+438	0	Hospitals	ORG	1.0
+439	0	working mothers	SG	1.0
+441	0	Most people	SG	1.0
+443	0	courts	PI	1.0
+443	1	people	ISG	1.0
+445	0	UK Finance for Growth	ORG	0.0
+445	1	growing businesses	ORG	0.5
+446	0	the DUP	PG	1.0
+446	1	NATO	PI	0.0
+447	0	high rise residential residents	SG	1.0
+449	0	new-born baby	SG	1.0
+451	0	children	SG	1.0
+451	1	children in care	SG	1.0
+451	2	care leavers	SG	1.0
+452	0	The SNP	PG	1.0
+452	1	people suffering from addiction	SG	1.0
+453	0	eight million people	ISG	0.3333333333333333
+456	0	prison	ORG	1.0
+456	1	staff	SG	1.0
+458	0	employers	SG	1.0
+461	0	homes	SG	0.0
+461	1	Conservative government	PG	1.0
+463	0	the Northern Ireland Executive	PI	1.0
+463	1	those who would take them away	SG	0.5
+468	0	school	ORG	1.0
+469	0	criminals	SG	1.0
+470	0	Nationalist ministers	PI	0.0
+471	0	Labour	PG	1.0
+472	0	Welsh people	SG	1.0
+473	0	courts	PI	1.0
+473	1	trade unions	ORG	1.0
+473	2	employers'associations	ORG	1.0
+474	0	government	PI	1.0
+474	1	the developing world	SG	0.0
+475	0	women	SG	1.0
+475	1	third or subsequent children	SG	1.0
+476	0	UKIP	PG	1.0
+476	1	the EU	PI	1.0
+477	0	the Labour Government	PG	1.0
+478	0	individuals	ISG	1.0
+479	0	Labour	PG	1.0
+480	0	BR	ORG	0.0
+481	0	16 year-olds	SG	1.0
+482	0	Channel	ORG	1.0
+483	0	British	SG	0.0
+484	0	people of all faiths	SG	1.0
+485	0	the nation	ISG	1.0
+487	0	fundamental public services	ORG	0.6666666666666666
+487	1	society	ISG	1.0
+489	0	our predecessors	ISG	1.0
+490	0	a nation	ISG	0.0
+491	0	the European Union	PI	1.0
+491	1	workers	SG	1.0
+491	2	low income families	SG	1.0
+491	3	refugees	SG	1.0
+492	0	creative sector	ORG	1.0
+492	1	the games industry	ORG	1.0
+492	2	skilled talent	ISG	0.0
+493	0	parents	SG	1.0
+493	1	school	ORG	1.0
+495	0	Tory	PG	1.0
+495	1	doctor	SG	1.0
+495	2	hospital	ORG	1.0
+496	0	Labour	PG	1.0
+497	0	planning boards	ORG	0.0
+497	1	representatives of the local authorities	PI	0.2
+498	0	a NHS	ORG	0.5
+498	1	the British people	SG	1.0
+499	0	cat owners	SG	1.0
+500	0	private enterprise	ORG	0.0
+500	1	business	ORG	1.0
+502	0	British management	ORG	1.0
+502	1	British trade unions	ORG	1.0
+503	0	Labour	PG	1.0
+503	1	and internal union	ORG	0.0
+504	0	All employees over the age of 65	SG	1.0
+504	1	employer	SG	1.0
+505	0	government	PI	1.0
+506	0	school	ORG	1.0
+506	1	schools	ORG	1.0
+507	0	Britain	ISG	1.0
+508	0	school	ORG	1.0
+508	1	education authority	ORG	0.0
+508	2	the Education Standards Commission	PI	1.0
+509	0	Labour	PG	1.0
+509	1	youth	SG	1.0
+510	0	Labour	PG	1.0
+510	1	local government	PI	1.0
+510	2	the Tories	PG	1.0
+512	0	school	ORG	1.0
+512	1	schools	ORG	1.0
+514	0	ministers who fail to deliver	SG	1.0
+516	0	the Court of Appeal	PI	1.0
+517	0	the lower paid	SG	1.0
+517	1	the needy	SG	1.0
+517	2	the pensioner	SG	1.0
+517	3	the handicapped	SG	1.0
+517	4	our society	ISG	1.0
+519	0	colleges	ORG	1.0
+519	1	schools	ORG	1.0
+519	2	primary schools	ORG	1.0
+519	3	teachers	SG	1.0
+520	0	rural communities	ISG	1.0
+520	1	post offices	ORG	1.0
+520	2	pubs	ORG	1.0
+520	3	police stations	PI	1.0
+522	0	local authorities	PI	1.0
+522	1	local parents	SG	1.0
+523	0	independent film makers	SG	1.0
+524	0	Conservative	PG	1.0
+527	0	nurses	SG	1.0
+528	0	local authorities	PI	1.0
+531	0	public services	ORG	1.0
+532	0	councils	PI	1.0
+532	1	businesses	ORG	1.0
+533	0	Local government	PI	1.0
+533	1	public services	ORG	1.0
+534	0	ethnic minority	SG	1.0
+535	0	University for Industry	ORG	1.0
+537	0	the unemployed	SG	1.0
+537	1	the low paid	SG	1.0
+537	2	the vulnerable	SG	1.0
+537	3	those who depend on public services	SG	1.0
+539	0	everyone	ISG	1.0
+540	0	UKIP	PG	1.0
+540	1	the police service	PI	1.0
+540	2	prison service	PI	1.0
+540	3	border force	PI	1.0
+540	4	anyone who has served in the Armed Forces for a minimum of 12 years	SG	1.0
+543	0	the public industries	ORG	1.0
+543	1	Whitehall	PI	1.0
+543	2	town hall	PI	1.0
+545	0	areas where there is the most need	SG	0.0
+545	1	school	ORG	1.0
+546	0	powerful legal machinery	PI	0.0
+549	0	those in prison	SG	1.0
+549	1	members of the community	SG	0.25
+551	0	police	PI	1.0
+552	0	LEAs	PI	0.0
+552	1	governing bodies	PI	1.0
+553	0	global leader	ISG	0.0
+553	1	human beings	ISG	0.5
+554	0	the industry	ORG	1.0
+555	0	Many people with small incomes	SG	0.8
+556	0	Gross Domestic Product	ORG	0.0
+557	0	people	ISG	1.0
+557	1	government	PI	1.0
+558	0	the European Economic Community	PI	1.0
+559	0	a steering group	PI	0.0
+559	1	the Government	PI	1.0
+559	2	the CBI	ORG	1.0
+559	3	the TUC	ORG	1.0
+563	0	those leaving the forces with six years'service or more	SG	1.0
+564	0	milk producers	ORG	0.0
+565	0	civilians	SG	1.0
+566	0	central government	PI	1.0
+566	1	local people	SG	1.0
+567	0	Labour	PG	1.0
+567	1	the National Health Service	ORG	1.0
+568	0	primary schools	ORG	1.0
+570	0	law enforcement agencies	PI	1.0
+570	1	Europol	PI	1.0
+571	0	persistent young offenders	SG	1.0
+572	0	employers	SG	1.0
+573	0	this entire nation	ISG	1.0
+577	0	prisons	ORG	1.0
+580	0	the armed forces	PI	1.0
+581	0	nation	ISG	1.0
+582	0	the NHS	ORG	1.0
+582	1	social care system	ORG	0.3333333333333333
+582	2	nurses	SG	1.0
+582	3	midwives	SG	1.0
+582	4	doctors	SG	1.0
+582	5	carers	SG	1.0
+582	6	other health professionals	SG	1.0
+583	0	the EU	PI	1.0
+583	1	other partners	ISG	0.0
+583	2	the Commonwealth	PI	1.0
+586	0	Labour government	PG	1.0
+586	1	the UN	PI	0.0
+586	2	Labour government	PG	1.0
+587	0	employers	SG	1.0
+587	1	people from different ethnic backgrounds	SG	1.0
+590	0	the Tories	PG	1.0
+590	1	defence industries	ORG	1.0
+591	0	the European Union	PI	1.0
+592	0	British businesses	ORG	1.0
+592	1	working families	SG	1.0
+593	0	Energy Efficiency Agency	PI	1.0
+593	1	Renewable Energy Agency	PI	1.0
+594	0	government	PI	1.0
+594	1	public services	ORG	1.0
+596	0	start-ups	ORG	1.0
+596	1	small businesses	ORG	1.0
+597	0	Supplementary Benefits Commission	PI	1.0
+598	0	Labour	PG	1.0
+598	1	the Tory	PG	1.0
+601	0	Labour	PG	1.0
+602	0	young people	SG	1.0
+605	0	the average person	SG	1.0
+606	0	Tory	PG	1.0
+606	1	our greatest institution	ORG	0.0
+608	0	NATO	PI	1.0
+608	1	Labour	PG	1.0
+608	2	the alliance	PI	1.0
+609	0	Broadcasting	ORG	0.0
+611	0	Every pupil	SG	1.0
+611	1	teacher	SG	1.0
+612	0	the nation	ISG	1.0
+612	1	government	PI	1.0
+614	0	Housing Associations	ORG	1.0
+614	1	local authorities	PI	1.0
+616	0	start-up	ORG	1.0
+616	1	inward investor	ORG	0.0
+616	2	companies	ORG	1.0
+616	3	loyal and skilled workers	SG	1.0
+617	0	Scotland	ISG	0.0
+618	0	private industry	ORG	1.0
+618	1	taxpayers	SG	1.0
+619	0	ten-year-olds	SG	1.0
+619	1	third highest achievers in literacy in the world and the fastest improving in maths	SG	0.21428571428571427
+620	0	a Royal Commission on Policing	PI	0.8
+620	1	service	PI	0.0
+621	0	Labour	PG	1.0
+621	1	firefighters	SG	1.0
+622	0	the private sector	ORG	1.0
+623	0	fisheries across the UK ’ s nations	SG	0.7142857142857143
+623	1	Parliament	PI	1.0
+623	2	coastal communities	ISG	1.0
+625	0	Conservatives	PG	1.0
+625	1	councils	PI	1.0
+628	0	employers	SG	1.0
+629	0	The youth employment service	ORG	1.0
+629	1	school leavers	SG	1.0
+630	0	home-owners	SG	1.0
+630	1	tenants	SG	1.0
+632	0	national parliaments	PI	1.0
+632	1	European legislation	PI	0.0
+632	2	member states	PI	0.0
+635	0	people	ISG	1.0
+637	0	communities	ISG	1.0
+637	1	human	ISG	0.0
+638	0	Governments	PI	1.0
+640	0	vulnerable groups	SG	1.0
+641	0	The Tory government	PG	1.0
+642	0	Government	PI	1.0
+642	1	people are at risk of being forced into marriage every year	SG	0.0
+643	0	families	SG	1.0
+644	0	individuals	ISG	1.0
+644	1	communities	ISG	1.0
+646	0	Labour	PG	1.0
+647	0	Parliament	PI	1.0
+648	0	the democratic Northern Ireland parties	PG	1.0
+649	0	government	PI	1.0
+650	0	UKIP	PG	1.0
+653	0	Conservative government	PG	1.0
+653	1	Britain	ISG	1.0
+654	0	directors who had been guilty of unlawful trading	SG	1.0
+656	0	the community as a whole	SG	0.0
+656	1	all the people	SG	0.3333333333333333
+657	0	Labour	PG	1.0
+658	0	Labour	PG	1.0
+660	0	security and intelligence services	PI	1.0
+661	0	government	PI	1.0
+662	0	the Government	PI	0.5
+663	0	government	PI	1.0
+663	1	the NHS	ORG	1.0
+667	0	Labour	PG	1.0
+670	0	schools	ORG	1.0
+671	0	the TUC	ORG	1.0
+672	0	The NHS	ORG	1.0
+672	1	those who work within it	SG	1.0
+673	0	individuals from a BAME background	SG	1.0
+673	1	the criminal justice system	PI	0.0
+675	0	A Labour government	PG	1.0
+675	1	local authorities	PI	1.0
+677	0	Parents	SG	1.0
+677	1	children	SG	1.0
+677	2	children	SG	1.0
+678	0	people	ISG	1.0
+679	0	local authorities	PI	1.0
+679	1	ethnic minority	SG	1.0
+680	0	the EU	PI	1.0
+681	0	safe neighbourhood	ISG	0.0
+683	0	trade union	ORG	1.0
+685	0	coal industry	ORG	1.0
+686	0	A Conservative Government	PG	0.6666666666666666
+686	1	the Speaker	PI	0.0
+687	0	the new body	PI	0.3333333333333333
+687	1	miners	SG	1.0
+690	0	cross-Whitehall	PI	0.0
+691	0	thousands of lives	SG	0.0
+692	0	the Conservatives	PG	1.0
+692	1	the health service	ORG	1.0
+694	0	Labour	PG	1.0
+695	0	people	ISG	1.0
+695	1	families	SG	1.0
+696	0	our neighbours	ISG	1.0
+696	1	the European Union	PI	1.0
+697	0	workers'co operatives	ORG	0.0
+697	1	jobbing'end	SG	0.0
+699	0	prison	ORG	1.0
+701	0	police	PI	1.0
+702	0	widows	SG	1.0
+704	0	Conservatives	PG	1.0
+705	0	people	ISG	1.0
+706	0	investors	SG	1.0
+706	1	Green Investment Bank	ORG	1.0
+708	0	employers	SG	1.0
+708	1	Climate Apprentices	SG	1.0
+709	0	people of Gibraltar	SG	1.0
+710	0	company	ORG	1.0
+711	0	government	PI	1.0
+712	0	Labour Government	PG	1.0
+713	0	farmers	SG	1.0
+713	1	industry	ORG	1.0
+715	0	industry	ORG	1.0
+715	1	NGOs	ORG	1.0
+715	2	local councils	PI	1.0
+716	0	house-owners	SG	1.0
+717	0	EC	PI	1.0
+718	0	those on average and above average pay	SG	0.8571428571428571
+719	0	the individual	ISG	1.0
+719	1	the law-abiding majority	SG	1.0
+719	2	the minority who abuse the system	SG	1.0
+721	0	The Tories	PG	1.0
+721	1	science-based research industries	ORG	1.0
+723	0	Everyone	ISG	1.0
+724	0	society	ISG	1.0
+725	0	the lowest paid	SG	1.0
+725	1	Whitehall	PI	1.0
+726	0	museums	ORG	1.0
+726	1	galleries	ORG	1.0
+727	0	the Sports Council	PI	1.0
+728	0	a Labour Government	PG	0.6666666666666666
+728	1	migrants from the EU	SG	1.0
+733	0	the Sports Councils	PI	1.0
+735	0	Conservative Government	PG	1.0
+736	0	entrepreneur	SG	1.0
+736	1	investor	SG	1.0
+738	0	Labour	PG	1.0
+741	0	police	PI	1.0
+742	0	Plants	ORG	1.0
+742	1	companies	ORG	1.0
+742	2	skilled workers	SG	1.0
+742	3	our competitors	ISG	1.0
+743	0	the Government	PI	1.0
+743	1	men and women	SG	0.6666666666666666
+744	0	British Rail	ORG	0.0
+746	0	workers	SG	1.0
+748	0	the telecommunications industry	ORG	1.0
+749	0	UK Government	PI	1.0
+749	1	Union	PI	1.0
+750	0	The Government	PI	1.0
+751	0	UKIP	PG	1.0
+751	1	the Environment Agency	PI	1.0
+752	0	all British citizens	SG	1.0
+754	0	staff	SG	1.0
+755	0	SNP MPs	PG	1.0
+755	1	Women Against State Pension Inequality ( WASPI )	ORG	0.0
+755	2	women	SG	1.0
+757	0	Gordon Brown's government	PG	0.4
+758	0	Liberal Democrats	PG	1.0
+758	1	parents	SG	1.0
+758	2	the next generation	ISG	1.0
+758	3	children	SG	0.0
+758	4	schools	ORG	1.0
+759	0	student	SG	0.0
+759	1	universities	ORG	1.0
+759	2	talented young people	SG	1.0
+759	3	students	SG	1.0
+761	0	The public sector	ORG	1.0
+762	0	seven different bodies reporting to three different cabinet ministers	PI	0.1111111111111111
+763	0	British industry	ORG	1.0
+763	1	main competitors	ISG	0.0
+764	0	The Conservative Government	PG	1.0
+765	0	public sector bodies	ORG	1.0
+765	1	mutual groups involving staff and passengers	SG	0.3333333333333333
+766	0	Labour	PG	1.0
+766	1	government	PI	1.0
+769	0	Government	PI	1.0
+770	0	people	ISG	1.0
+771	0	comprehensive advice centres	ORG	1.0
+771	1	those who need help	SG	1.0
+772	0	local authorities	PI	1.0
+772	1	quality public services	ORG	0.6666666666666666
+772	2	communities	ISG	1.0
+773	0	disadvantaged people	SG	1.0
+775	0	Labour	PG	1.0
+775	1	country	ISG	0.0
+780	0	More and more who have the ability to benefit	SG	0.7777777777777778
+781	0	school	ORG	1.0
+782	0	The Green Party	PG	1.0
+782	1	the EU	PI	1.0
+783	0	Parliament	PI	1.0
+783	1	Government	PI	1.0
+786	0	the public sector	ORG	1.0
+786	1	workers	SG	1.0
+786	2	the Government	PI	1.0
+786	3	a minority	ISG	0.0
+787	0	a Labour government	PG	0.6666666666666666
+787	1	the North Atlantic Alliance	PI	1.0
+788	0	major museums	ORG	1.0
+788	1	galleries	ORG	1.0
+789	0	the NHS	ORG	1.0
+789	1	schools	ORG	1.0
+789	2	people	ISG	1.0
+790	0	community-led	ISG	1.0
+791	0	each authority	PI	0.5
+793	0	the national government	PI	1.0
+793	1	the devolved institutions	PI	1.0
+794	0	trading partners	ISG	0.0
+795	0	Scottish farmers and fishermen	SG	0.75
+796	0	Law Commissioners	PI	1.0
+796	1	a modern society	ISG	1.0
+797	0	Small Business Development Bureau	PI	1.0
+797	1	small firms	ORG	1.0
+798	0	tenants	SG	1.0
+800	0	Labour	PG	1.0
+800	1	museums	ORG	1.0
+800	2	museums and heritage sector	ORG	0.75
+801	0	big corporations	ORG	1.0
+801	1	the super-rich	SG	1.0
+801	2	everyone else	ISG	0.0
+803	0	leadership	ISG	0.0
+804	0	British firms	ORG	1.0
+806	0	the Community	ISG	1.0
+809	0	The Conservative Party	PG	1.0
+809	1	the Union	PI	0.0
+809	2	family of nations	SG	0.0
+812	0	governments	PI	1.0
+813	0	NHS	ORG	1.0
+814	0	Rural councils	PI	1.0
+814	1	public services	ORG	1.0
+817	0	Labour	PG	1.0
+817	1	the Lottery	ORG	1.0
+817	2	people	ISG	1.0
+818	0	the Energy Commission	PI	1.0
+819	0	a compassionate society	ISG	0.6666666666666666
+819	1	people in need	SG	1.0
+820	0	A Conservative government	PG	1.0
+821	0	marginalised communities in the developing world	SG	0.8333333333333334
+821	1	the UK government	PI	1.0
+822	0	elected assembles in Scotland and Wales	PI	0.0
+823	0	the social services	ORG	1.0
+824	0	our country	ISG	1.0
+825	0	British Rail	ORG	0.0
+825	1	the commercial sector	ORG	1.0
+826	0	the National Freight Company	ORG	1.0
+826	1	managers	SG	1.0
+826	2	workers	SG	1.0
+826	3	business	ORG	1.0
+827	0	the people	ISG	0.5
+828	0	family	SG	1.0
+829	0	universities	ORG	1.0
+829	1	further education colleges	ORG	1.0
+831	0	veterans	SG	1.0
+832	0	The Scottish Government	PI	1.0
+832	1	rural and remote communities	SG	1.0
+833	0	local government	PI	1.0
+833	1	local public services	ORG	1.0
+834	0	Cyprus	ISG	1.0
+836	0	government	PI	1.0
+836	1	the authorities	PI	1.0
+838	0	Local health professionals	SG	1.0
+840	0	all who enter secondary school after the summer of 1967	SG	1.0
+841	0	NATO	PI	1.0
+842	0	teenagers	SG	1.0
+844	0	tourist	SG	1.0
+844	1	family	SG	0.0
+845	0	the courts	PI	1.0
+845	1	convicted juveniles	SG	1.0
+846	0	the young	SG	1.0
+847	0	Labour	PG	1.0
+847	1	council housing	ORG	0.0
+847	2	areas of serious housing need	SG	1.0
+848	0	a special independent Police Complaints Board	PI	0.6666666666666666
+848	1	the police	PI	1.0
+848	2	the community	ISG	1.0
+849	0	the generations	ISG	1.0
+849	1	older people	SG	1.0
+849	2	younger generations	SG	0.5
+850	0	employees	SG	1.0
+850	1	company	ORG	1.0
+851	0	Good schools	ORG	1.0
+851	1	less successful schools	ORG	1.0
+852	0	Labour Government	PG	1.0
+853	0	the House of Lords	PI	1.0
+853	1	hereditary peers	PI	0.0
+854	0	Labour	PG	1.0
+855	0	citizens	SG	1.0
+855	1	tenants	SG	1.0
+855	2	shoppers	SG	1.0
+855	3	patients	SG	1.0
+855	4	voters	SG	1.0
+856	0	women	SG	1.0

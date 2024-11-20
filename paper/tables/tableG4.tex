@@ -1,0 +1,18 @@
+\begin{table}[!t]
+
+\caption{\label{tab:dictionary_expansion_all_f1s_by_k}Summary of test set performances in annotated UK manifesto sentences in the  Thau (2019) data of automatically expanded versions of the Dolinsky-Huber-Howe dictionary in terms of the F1-score. Values (in brackets) report the average (90\% quantile range) of performances across 5 folds Rows report results for differnt values of $k$ that indicates how many nearest neighbor terms per original keyword were included to expand the dictionary. Columns distinguish between different evaluation schemes (i.e., different ways to compute the F1 score). \emph{Note:} \texttt{seqeval} is the strict metric proposed by \citet{ramshaw_text_1995} and implemented by \citet{nakayama_seqeval_2018}.}
+\centering
+\fontsize{10}{12}\selectfont
+\begin{tabular}[t]{lcccc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{3}{c}{Mention level} & \multicolumn{1}{c}{ } \\
+\cmidrule(l{3pt}r{3pt}){2-4}
+Category & \texttt{seqeval} & cross span avg. & within sentence avg. & Word level\\
+\midrule
+k=10 & 0.07 [0.06, 0.09] & 0.11 [0.10, 0.12] & 0.11 [0.10, 0.12] & 0.31 [0.29, 0.32]\\
+k=25 & 0.07 [0.06, 0.09] & 0.11 [0.10, 0.12] & 0.11 [0.10, 0.12] & 0.30 [0.29, 0.31]\\
+k=50 & 0.07 [0.06, 0.08] & 0.10 [0.09, 0.11] & 0.10 [0.10, 0.11] & 0.29 [0.28, 0.30]\\
+k=100 & 0.04 [0.03, 0.05] & 0.10 [0.10, 0.11] & 0.10 [0.10, 0.11] & 0.27 [0.26, 0.28]\\
+\bottomrule
+\end{tabular}
+\end{table}

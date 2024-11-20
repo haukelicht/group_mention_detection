@@ -2,18 +2,19 @@ import numpy as np
 import pandas as pd
 import jsonlines
 
-
 import warnings
 
 from seqeval.metrics import classification_report as seqeval_classification_report
-from .span_metrics import compute_span_metrics
-from .relaxed_span_metrics import compute_relaxed_span_metrics
+from utils.span_metrics import compute_span_metrics
 from sklearn.metrics import precision_recall_fscore_support, classification_report, balanced_accuracy_score, accuracy_score
 
 from transformers import Trainer
 from transformers.trainer_utils import PredictionOutput
 
 from typing import List, Dict, Optional, Tuple, Union, Literal
+
+
+# Token classification ---------------------------------------
 
 def correct_iob2(labels: List[str]) -> List[str]:
     prev = None
@@ -70,8 +71,7 @@ def compute_token_classification_metrics(
     }
     results['seqeval'] = result
     
-    # Span level (own metrics)
-    
+    # Span level (own metrics)    
     result = compute_span_metrics(y_true=labels, y_pred=predictions, types=types)
     # flatten
     result = {k: result[k] for k in keys if k in result}
@@ -86,21 +86,7 @@ def compute_token_classification_metrics(
     }
     results['spanlevel'] = result
 
-    # relaxed span-level metrics:
-    result = compute_relaxed_span_metrics(y_true=labels, y_pred=predictions)
-    # flatten
-    result = {k: result[k] for k in keys if k in result}
-    # format
-    result = {
-        # format: metric name <=> metric value
-        str(f"{k.replace(' avg', '')}_{m.replace('f1-score', 'f1')}_relaxed"): s
-        # iterate over class-wise results
-        for k, scores in result.items()
-        # iterate over metrics
-        for m, s in scores.items()
-    }
-    results['spanlevel'].update(result)
-    
+
     # Document level
     overall = [[], []]
     by_type = {t: [[], []] for t in types}
@@ -122,6 +108,7 @@ def compute_token_classification_metrics(
         result[t+'_f1'] = f1
     results['doclevel'] = result
     
+
     # Word level
     # flatten the list of lists and discard the B/I distinction
     predictions = [l if l=='O' else l[2:] for labs in predictions for l in labs]
@@ -179,8 +166,8 @@ def save_eval_log(trainer: Trainer, fp: str, append: bool=False):
     with jsonlines.open(fp, 'a' if append else 'w') as writer:
         writer.write(eval_log)
 
-# Sentence classification
 
+# Sentence classification ------------------------------------
 
 def parse_sequence_classifier_prediction_output(p: PredictionOutput):
     logits, labels = p.predictions, p.label_ids

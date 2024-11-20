@@ -1,0 +1,34 @@
+
+\begin{table}
+\caption{Logistic regression coefficient estimates from regressing binary sentence-level indicator of the use of LIWC emotion words (positive or negative/positive/negative) in the sentence on indicator for whether the sentence is predicted to mention at least one social group by our RoBERTa group mention detection classifier in the Conservative and Labour party manifestos in our UK corpus. As a robustness check, these models exclude sentences in which \emph{all} emotion words detected with dictionary are located in the predicted group mention(s).}
+\begin{center}
+\begin{threeparttable}
+\begin{tabular}{l D{.}{.}{6.6} D{.}{.}{6.6} D{.}{.}{6.6}}
+\toprule
+ & \multicolumn{1}{c}{Emotions} & \multicolumn{1}{c}{Positive emotions} & \multicolumn{1}{c}{Negative emotions} \\
+\midrule
+Contains social group mention(s)   & 0.055       & 0.131^{***} & -0.019       \\
+                                   & (0.035)     & (0.038)     & (0.064)      \\
+Progressive--conservative position & 0.007^{***} & 0.006       & -0.002       \\
+                                   & (0.002)     & (0.003)     & (0.004)      \\
+State--market position             & 0.002       & 0.002       & 0.008^{*}    \\
+                                   & (0.001)     & (0.002)     & (0.003)      \\
+Prime minister party               & -0.088^{*}  & 0.063       & -0.340^{***} \\
+                                   & (0.040)     & (0.044)     & (0.049)      \\
+$N$ tokens                         & 0.070^{***} & 0.063^{***} & 0.037^{***}  \\
+                                   & (0.002)     & (0.002)     & (0.002)      \\
+\midrule
+AIC                                & 31332.900   & 32744.158   & 25402.569    \\
+BIC                                & 31503.809   & 32915.067   & 25573.479    \\
+Log Likelihood                     & -15645.450  & -16351.079  & -12680.284   \\
+Deviance                           & 31290.900   & 32702.158   & 25360.569    \\
+Num. obs.                          & 25300       & 25300       & 25300        \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\scriptsize{\item $^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$. \item All models include election fixed effects. \item Standard errors clustered by party and election.}
+\end{tablenotes}
+\end{threeparttable}
+\label{tab:regression_coefficients_subset}
+\end{center}
+\end{table}
