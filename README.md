@@ -37,7 +37,7 @@ The [`notebooks/`](./notebooks) folder contains Jupyter notebooks that demonstra
 
 ## Replication materials
 
-The [`code/`](./code), [`data/`](./code), and [`results/`](./result) folders contain the replication code, data, and results.
+The [`code/`](./replication/code), [`data/`](./replication/code), and [`results/`](./replication/result) folders in [`replication/`](./replication) contain the replication code, data, and results.
 These materials can also be obtained from Harvard Dataverse: https://doi.org/10.7910/DVN/QCOQ0T
 
 
@@ -54,7 +54,7 @@ To replicate the python setup, run the following command in the terminal:
 ```bash
 conda create -y --name group_mention_detection python=3.10 pip
 conda activate group_mention_detection
-pip install -r python_requirements.txt
+pip install -r replication/python_requirements.txt
 ```
 
 The **R environment** is managed by `renv`.
@@ -65,7 +65,7 @@ To replicate the python setup, run the following command in the terminal in R:
 devtools::install_version("renv", version = "0.15.5")
 library(renv)
 init(bare = TRUE)
-pkgs <- readLines("r_requirements.txt")
+pkgs <- readLines(file.path("replication", "r_requirements.txt"))
 install(pkgs)
 ```
 
