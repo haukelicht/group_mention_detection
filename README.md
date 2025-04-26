@@ -1,6 +1,6 @@
 # Social group mention detection with supervised learning
 
-This repository contains the code and data for the paper "Detecting Group Mentions in Political Rhetoric: A Supervised Learning Approach" forthcoming at the *British Journal of Political Science* by Hauke Licht (hauke.licht@uibk.ac.at) and Ronja Sczepanski (ronja.sczepanski@sciencespo.fr).
+This repository contains the code and data for the paper "Detecting Group Mentions in Political Rhetoric: A Supervised Learning Approach" by Hauke Licht (hauke.licht@uibk.ac.at) and Ronja Sczepanski (ronja.sczepanski@sciencespo.fr) forthcoming in the *British Journal of Political Science*.
 
 **Abstract**<br>
 > Politicians appeal to social groups to court their electoral support. 
@@ -12,15 +12,15 @@ This repository contains the code and data for the paper "Detecting Group Mentio
 > We illustrate our approach in two applications, generating new empirical insights into how British parties use social groups in their rhetoric.
 > Our method allows detecting and extracting mentions of social groups from various sources of texts, creating new possibilities for empirical research in political science.
 
-The paper **preprint** is avaialble at OSF: https://osf.io/ufb96/ <br>
-The replication materials are also available at **Harvard Dataverse**: https://doi.org/10.7910/DVN/QCOQ0T
+The paper **preprint** is available at OSF: https://osf.io/ufb96/ <br>
+The materials in [`replication/`](./replication) are also available at **Harvard Dataverse**: https://doi.org/10.7910/DVN/QCOQ0T
 
 Please **cite the paper** when using code or data from this repository:
 
 ```bibtex
-@article{licht_detecting_2024,
+@article{licht_detecting_2025,
 	author = {Licht, Hauke and Sczepanski, Ronja},
-	year = {forthcoming},
+	year = {2025},
 	title = {Detecting Group Mentions in Political Rhetoric: A Supervised Learning Approach},
 	shorttitle = {Detecting Group Mentions in Political Rhetoric},
 	url = {https://osf.io/ufb96/},

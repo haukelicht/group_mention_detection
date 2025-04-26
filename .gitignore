@@ -16,3 +16,4 @@
 !replication/results/**
 !notebooks/**
 
+.Rproj.user
