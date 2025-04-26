@@ -24,7 +24,7 @@ Please **cite the paper** when using code or data from this repository:
 	title = {Detecting Group Mentions in Political Rhetoric: A Supervised Learning Approach},
 	shorttitle = {Detecting Group Mentions in Political Rhetoric},
 	url = {https://osf.io/ufb96/},
-	journal = {British Journal of Political Science},
+	journal = {{British} {Journal} of {Political} {Science}},
 	volume = {},
 	number = {},
 	keywords = {social groups, political rhetoric, computational text analysis, supervised classification}
