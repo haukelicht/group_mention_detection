@@ -7,11 +7,11 @@ Each file is a JSONlines file, that is a text file with one JSON dictionary per 
 An exemplary line looks like this:
 
 ```json
-Die Dateien sind JSONlines files. Jede Zeile sieht quasi so aus:
-
-{'id': '829ac29cd9304a66265e3ea830a505e3',
+{
+ 'id': '829ac29cd9304a66265e3ea830a505e3',
  'text': 'Seit 150 Jahren machen wir Politik für eine bessere Gesellschaft .',
- 'tokens': ['Seit',
+ 'tokens': [
+  'Seit',
   '150',
   'Jahren',
   'machen',
@@ -35,8 +35,8 @@ Note that the dictionary records
 - the text in pre-tokenized format,
 - annotations and labels at the _token_ level (a dictionary of lists, one per annotator),
 
-Annotations are in field `"annotations"` and map annotator IDs to their token-level annotations.
-**Labels** are in field `"labels"` and `"BSCModel"` are the Bayesian Sequence Combination (BSC) model-based aggregate labels.
+Annotations are in the field `"annotations"` and map annotator IDs to their token-level annotations.
+**Labels** are in the field `"labels"`, and `"BSCModel"` records the Bayesian Sequence Combination (BSC) model-based aggregate labels.
 
 ## Converting numeric label IDs to label indicators and entity types
 
@@ -48,7 +48,7 @@ The data in `"annotations"` and `"labels"` are numeric label IDs that map onto o
 - organization, public institution, or collective actor
 - implicit social group reference
 
-To convert them to text labels, use this python code:
+To convert them to text labels, use this Python code:
 
 ```python
 # get list of entity types
