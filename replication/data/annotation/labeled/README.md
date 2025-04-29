@@ -8,25 +8,25 @@ An exemplary line looks like this:
 
 ```json
 {
- 'id': '829ac29cd9304a66265e3ea830a505e3',
- 'text': 'Seit 150 Jahren machen wir Politik für eine bessere Gesellschaft .',
- 'tokens': [
-  'Seit',
-  '150',
-  'Jahren',
-  'machen',
-  'wir',
-  'Politik',
-  'für',
-  'eine',
-  'bessere',
-  'Gesellschaft',
-  '.'],
- 'annotations': {'emarie': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
- 'labels': {'BSCModel': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
- 'metadata': {'sentence_id': '41320.000.2013.1.1-2520-1',
-  'split_': 'smarie',
-  'job': 'group-mentions-annotation-de-manifestos-round-01'}
+ "id": "829ac29cd9304a66265e3ea830a505e3",
+ "text": "Seit 150 Jahren machen wir Politik für eine bessere Gesellschaft .",
+ "tokens": [
+  "Seit",
+  "150",
+  "Jahren",
+  "machen",
+  "wir",
+  "Politik",
+  "für",
+  "eine",
+  "bessere",
+  "Gesellschaft",
+  "."],
+ "annotations": {"emarie": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+ "labels": {"BSCModel": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+ "metadata": {"sentence_id": "41320.000.2013.1.1-2520-1",
+  "split_": "smarie",
+  "job": "group-mentions-annotation-de-manifestos-round-01"}
 }
 ```
 
