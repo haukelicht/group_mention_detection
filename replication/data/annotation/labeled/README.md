@@ -58,7 +58,6 @@ entity_types = [
   "political institution",
   "organization, public institution, or collective actor",
   "implicit social group reference",
-  "unsure",
 ]
 # convert to IOB2 scheme
 scheme = ['O'] + ['I-'+t for t in types] + ['B-'+t for t in types]
