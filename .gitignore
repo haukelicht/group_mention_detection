@@ -16,4 +16,9 @@
 !replication/results/**
 !notebooks/**
 
+!release/**
+!release/splits/**
+
+
 .Rproj.user
+
