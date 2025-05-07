@@ -110,6 +110,7 @@ def run_hyperparameter_search(
         compute_metrics=compute_metrics,
         callbacks=[EarlyStoppingCallback(early_stopping_patience=3, early_stopping_threshold=3)]
     )
+    print('using devive:', str(trainer.model.device))
     
     # define sampler
     optuna_sampler = optuna.samplers.TPESampler(
