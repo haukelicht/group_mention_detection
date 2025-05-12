@@ -62,7 +62,7 @@ def run_hyperparameter_search(
     print('Starting HP search for model', model_name)
     
     # load tokenizer
-    tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True, add_prefix_space=True)
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_fast=True, add_prefix_space=True)
     
     train_dataset, dev_dataset = prepare_datasets(tokenizer, data_train, data_dev)
     
@@ -84,7 +84,7 @@ def run_hyperparameter_search(
         output_dir=out_dir,
         report_to='none',
         # misc
-        fp16=torch.cuda.is_available(),
+        fp16=torch.cuda.is_available() and 'deberta' not in model_name,
         # reproducibility
         seed=seed,
         data_seed=seed,
@@ -93,11 +93,11 @@ def run_hyperparameter_search(
     train_args = TrainingArguments(**train_args)
 
     def model_init():
-        config = AutoConfig.from_pretrained(model_name)
+        config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
         config.num_labels = len(label2id)
         config.label2id = label2id
         config.id2label = {v: k for k, v in label2id.items()}
-        return AutoModelForTokenClassification.from_pretrained(model_name, config=config, device_map='auto', torch_dtype='auto')
+        return AutoModelForTokenClassification.from_pretrained(model_name, config=config, device_map='auto', torch_dtype='auto', trust_remote_code=True)
     
     # create Trainer
     trainer = Trainer( 
@@ -108,7 +108,7 @@ def run_hyperparameter_search(
         train_dataset=train_dataset,
         eval_dataset=dev_dataset,
         compute_metrics=compute_metrics,
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=3, early_stopping_threshold=3)]
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=3, early_stopping_threshold=0.03)]
     )
     print('using devive:', str(trainer.model.device))
     
@@ -152,7 +152,7 @@ def compute_metrics(p):
     return {'seqeval-SG_f1': results['social group']['f1-score']}
 
 # #### hyperparameter search function
-trial_learning_rates = [9e-6, 2e-5, 4e-5]
+trial_learning_rates = [1e-6, 5e-6, 1e-5, 3e-5, 5e-5]
 trial_train_batch_sizes = [8, 16, 32]
 trial_weight_decays = [0.01, 0.1, 0.3]
 
@@ -188,7 +188,7 @@ def main(args):
 
     set_seed(args.seed)
     results = {}
-    for model_name in args.model_names:
+    for i, model_name in enumerate(args.model_names):
         results[model_name] = run_hyperparameter_search(
             # model config
             model_name=model_name,
@@ -204,6 +204,10 @@ def main(args):
             seed=args.seed,
             out_dir=os.path.join(dest, 'hpsearch')
         )
+        fp = os.path.join(dest, 'results.jsonl')
+        with open(fp, 'w' if i==0 else 'a') as file:
+            json.dump(results, file)
+            file.write('\n')
 
     # finally: write config and results to experiment folder
     config = args.__dict__

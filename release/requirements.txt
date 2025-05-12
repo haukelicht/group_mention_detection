@@ -16,9 +16,9 @@ sentence_transformers>=4.0.0
 seqeval==1.2.2
 git+https://github.com/haukelicht/soft-seqeval.git@ac3e960b4511e30b395ee47b6d4d33d64f89e6f7
 optuna==4.3.0
-jupyter
-jupyterlab
-ipykernel
-ipython
-ipywidgets
-notebook
+# jupyter
+# jupyterlab
+# ipykernel
+# ipython
+# ipywidgets
+# notebook

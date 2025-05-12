@@ -1,8 +1,8 @@
 
-MODELS="roberta-base answerdotai/ModernBERT-base EuroBERT/EuroBERT-610m"
+MODELS="roberta-large answerdotai/ModernBERT-large EuroBERT/EuroBERT-2.1B"
 DATAPATH="splits"
 N_TRIALS=20
-EXPERIMENT_NAME="base-model-comparison"
+EXPERIMENT_NAME="large-model-comparison"
 EXPERIMENT_RESULTS_PATH="results"
 
 python hyperparameter_search.py \

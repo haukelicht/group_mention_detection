@@ -51,6 +51,7 @@ DEFAULT_TRAINING_ARGS = dict(
     per_device_eval_batch_size=32,
     weight_decay=0.01,
     warmup_ratio=0.1,
+    optim='adamw_torch',
 )
 
 
@@ -81,3 +82,13 @@ def compute_seqeval_metrics(p: PredictionOutput, label_list: List[str]):
     results = classification_report(true_labels, true_predictions, output_dict=True)
 
     return results
+
+from soft_seqeval.metrics import compute_sequence_metrics
+
+def compute_metrics(p: PredictionOutput, id2label: Dict[int, str]) -> Dict[str, float]:
+    predictions, labels = p
+    predictions = np.argmax(predictions, axis=2)
+    # convert predictions and labels to list of lists of ints
+    predictions = predictions.astype(int).tolist()
+    labels = labels.astype(int).tolist()
+    return compute_sequence_metrics(y_true=labels, y_pred=predictions, id2label=id2label, flatten_output=True)
