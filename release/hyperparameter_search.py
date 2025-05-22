@@ -28,7 +28,7 @@ from finetuning_utils import compute_seqeval_metrics
 
 import optuna
 
-from typing import Dict, List, Callable, Any
+from typing import Dict, List, Callable, Any, Optional
 
 def prepare_datasets(
         tokenizer: AutoTokenizer,
@@ -57,7 +57,8 @@ def run_hyperparameter_search(
     hp_fun: Callable[[optuna.trial.Trial], Dict[str, Any]] = None,
     n_trials: int=10,
     seed: int=42,
-    out_dir: str='hpsearch'
+    out_dir: str='hpsearch',
+    additional_train_args: Optional[Dict[str, Any]] = None,
 ):
     print('Starting HP search for model', model_name)
     
@@ -66,9 +67,16 @@ def run_hyperparameter_search(
     
     train_dataset, dev_dataset = prepare_datasets(tokenizer, data_train, data_dev)
     
+    train_args = default_training_args.copy()
+    if additional_train_args is not None:
+        train_args.update(additional_train_args)
+
+    print(additional_train_args)
+    print(train_args)
+
     # define train args
     train_args = dict(
-        **default_training_args,
+        **train_args,
         # how to select "best" model
         metric_for_best_model=metric,
         greater_is_better=True,
@@ -126,6 +134,7 @@ def run_hyperparameter_search(
         constant_liar=False
     )
     
+    print(n_trials)
     s = timer()
     best_run = trainer.hyperparameter_search(
         n_trials=n_trials,
@@ -151,18 +160,6 @@ def compute_metrics(p):
     results = compute_seqeval_metrics(p, label_list=list(label2id.keys()))
     return {'seqeval-SG_f1': results['social group']['f1-score']}
 
-# #### hyperparameter search function
-trial_learning_rates = [1e-6, 5e-6, 1e-5, 3e-5, 5e-5]
-trial_train_batch_sizes = [8, 16, 32]
-trial_weight_decays = [0.01, 0.1, 0.3]
-
-def hp_space(trial):
-    return {
-        'learning_rate': trial.suggest_categorical('learning_rate', trial_learning_rates),
-        'per_device_train_batch_size': trial.suggest_categorical('per_device_train_batch_size', trial_train_batch_sizes),
-        'weight_decay': trial.suggest_categorical('weight_decay', trial_weight_decays),
-    }
-
 def main(args):
 
     assert os.path.exists(args.train_data_file), f"Train data file {args.train_data_file} does not exist"
@@ -186,6 +183,15 @@ def main(args):
     else:
         os.makedirs(dest)
 
+    # #### hyperparameter search function
+    
+    def hp_space(trial):
+        return {
+            'learning_rate': trial.suggest_categorical('learning_rate', args.learning_rates),
+            'per_device_train_batch_size': trial.suggest_categorical('per_device_train_batch_size', args.train_batch_sizes),
+            'weight_decay': trial.suggest_categorical('weight_decay', args.weight_decays),
+        }
+    
     set_seed(args.seed)
     results = {}
     for i, model_name in enumerate(args.model_names):
@@ -196,10 +202,14 @@ def main(args):
             # data
             data_train=data_train,
             data_dev=data_dev,
-            # search parames
+            # search params
             metric='seqeval-SG_f1',
             hp_fun=hp_space,
             n_trials=args.n_trials,
+            # kwargs
+            additional_train_args={
+                'gradient_accumulation_steps': args.gradient_accumulation_steps
+            },
             # reproducibility
             seed=args.seed,
             out_dir=os.path.join(dest, 'hpsearch')
@@ -212,9 +222,10 @@ def main(args):
     # finally: write config and results to experiment folder
     config = args.__dict__
     config['grid'] = {
-        'learning_rate': trial_learning_rates,
-        'train_batch_size': trial_train_batch_sizes,
-        'weight_decay': trial_weight_decays
+        'learning_rate': args.learning_rates,
+        'train_batch_size': args.train_batch_sizes,
+        'gradient_accumulation_steps': args.gradient_accumulation_steps,
+        'weight_decay': args.weight_decays,
     }
 
     fp = os.path.join(dest, 'config.json')
@@ -233,7 +244,13 @@ if __name__ == '__main__':
     parser.add_argument('--model_names', nargs='+', type=str, required=True, help='List of model names to use for training')
     parser.add_argument('--experiment_name', type=str, default='hyperparameter_search', help='Name of the experiment')
     parser.add_argument('--experiment_results_path', type=str, default='results', help='Path to store the experiment results')
+    
     parser.add_argument('--n_trials', type=int, default=10, help='Number of trials for hyperparameter search')
+    parser.add_argument('--learning_rates', nargs='+', type=float, default=[1e-6, 5e-6, 1e-5, 3e-5, 5e-5])
+    parser.add_argument('--train_batch_sizes', nargs='+', type=int, default=[8, 16, 32])
+    parser.add_argument('--gradient_accumulation_steps', type=int, default=1, help='Number of gradient accumulation steps')
+    parser.add_argument('--weight_decays', nargs='+', type=str, default = [0.01, 0.1, 0.3])
+
     parser.add_argument('--overwrite', action='store_true', help='Overwrite existing experiment results')
     
     parser.add_argument('--train_data_file', type=str, required=True, help='Path to the data file')
@@ -253,10 +270,17 @@ else:
     args.model_names = 'roberta-base'
     args.experiment_name = 'base-model-comparison'
     args.experiment_results_path = 'results'
+    
     args.n_trials = 10
+    args.learning_rates = [1e-6, 5e-6, 1e-5, 3e-5, 5e-5]
+    args.train_batch_sizes = [8, 16, 32]
+    args.weight_decays = [0.01, 0.1, 0.3]
+    args.gradient_accumulation_steps = 1
+    
     args.overwrite = True
 
     args.train_data_file = 'splits/train.jsonl'
     args.dev_data_file = 'splits/dev.jsonl'
+
     
     args.seed = 1234

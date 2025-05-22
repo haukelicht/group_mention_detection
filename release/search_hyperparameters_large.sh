@@ -1,5 +1,5 @@
 
-MODELS="roberta-large answerdotai/ModernBERT-large EuroBERT/EuroBERT-2.1B"
+MODELS="roberta-large answerdotai/ModernBERT-large"
 DATAPATH="splits"
 N_TRIALS=20
 EXPERIMENT_NAME="large-model-comparison"
