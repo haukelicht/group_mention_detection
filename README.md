@@ -23,10 +23,10 @@ Please **cite the paper** when using code or data from this repository:
 	year = {2025},
 	title = {Detecting Group Mentions in Political Rhetoric: A Supervised Learning Approach},
 	shorttitle = {Detecting Group Mentions in Political Rhetoric},
-	url = {https://osf.io/ufb96/},
+	DOI={10.1017/S0007123424000954}, 
 	journal = {{British} {Journal} of {Political} {Science}},
-	volume = {},
-	number = {},
+	volume={55}, 
+	pages={e119},
 	keywords = {social groups, political rhetoric, computational text analysis, supervised classification}
 }
 ```
